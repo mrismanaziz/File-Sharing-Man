@@ -39,10 +39,6 @@ async def _human_time_duration(seconds):
     return ', '.join(parts)
 
 
-WAIT_MSG = """"<code>Processing...<code>"""
-REPLY_ERROR = """<code>Gunakan Perintah ini Reply ke pesan telegram tanpa spasi.</code>"""
-
-
 @Bot.on_message(filters.command('start') & filters.private & subscribed)
 async def start_command(client: Client, message: Message):
     id = message.from_user.id
@@ -168,7 +164,7 @@ async def subscribers_count(bot, m: Message):
     id = m.from_user.id
     if id not in ADMINS:
         return
-    msg = await m.reply_text(WAIT_MSG)
+    msg = await m.reply_text("<code>Processing...<code>")
     messages = await users_info(bot)
     active = messages[0]
     blocked = messages[1]
@@ -217,7 +213,7 @@ Deleted Accounts: <code>{deleted}</code></b>"""
         return await pls_wait.edit(status)
 
     else:
-        msg = await message.reply(REPLY_ERROR)
+        msg = await message.reply("<code>Gunakan Perintah ini Harus Sambil Reply ke pesan telegram yang ingin di Broadcast.</code>")
         await asyncio.sleep(8)
         await msg.delete()
 
@@ -232,9 +228,8 @@ async def ping_pong(client, m: Message):
     delta_ping = time() - start
     await m_reply.edit_text(
         "<b>PONG!!</b>🏓 \n"
-        f"<b>✣ Pinger -</b> <code>{delta_ping * 1000:.3f}ms</code>\n"
-        f"<b>✣ Uptime -</b> <code>{uptime}</code>\n"
-        f"<b>✦҈͜͡Owner :</b> <code>{OWNER}</code>"
+        f"<b>• Pinger -</b> <code>{delta_ping * 1000:.3f}ms</code>\n"
+        f"<b>• Uptime -</b> <code>{uptime}</code>\n"
     )
 
 
