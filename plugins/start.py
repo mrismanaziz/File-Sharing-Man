@@ -225,11 +225,13 @@ Deleted Accounts: <code>{deleted}</code>"""
 @Client.on_message(filters.command("ping"))
 async def ping_pong(client, m: Message):
     start = time()
-    m_reply = await m.reply_text("Pinging...")
+    m_reply = await m.reply_text("<code>Pinging...<code>")
     delta_ping = time() - start
     await m_reply.edit_text(
-        "🏓 `PONG!!`\n"
-        f"⚡️ `{delta_ping * 1000:.3f} ms`"
+        "<b>PONG!!</b>🏓 \n"
+        f"<b>✣ Pinger -</b> <code>{delta_ping * 1000:.3f} ms<code>"
+        f"<b>✣ Uptime -</b> <code>{START_TIME_ISO}</code>"
+        f"<b>✦҈͜͡Owner :</b> <code>{Owner}</code>"
     )
 
 
@@ -241,5 +243,5 @@ async def get_uptime(client, m: Message):
     await m.reply_text(
         "🤖 **Bot Status:**\n"
         f"• **Uptime:** `{uptime}`\n"
-        f"• **Start time:** `{START_TIME_ISO}`"
+        f"• **Start Time:** `{START_TIME_ISO}`"
     )
