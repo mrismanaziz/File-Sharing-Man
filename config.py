@@ -22,7 +22,7 @@ CHANNEL_ID = int(os.environ.get("CHANNEL_ID", ""))
 OWNER_ID = int(os.environ.get("OWNER_ID", ""))
 
 #NAMA OWNER
-OWNER = os.environ.get("OWNER", "Risman")
+OWNER = os.environ.get("OWNER", "ʀɪsᴍᴀɴ•")
 
 #Database 
 DB_URI = os.environ.get("DATABASE_URL", "")
@@ -42,12 +42,12 @@ except ValueError:
         raise Exception("Daftar Admin Anda tidak berisi User ID Telegram yang valid.")
 
 #Pesan Saat Memaksa Subscribe 
-FORCE_MSG = os.environ.get("FORCE_SUB_MESSAGE", "<b>Hello {first}\n\nAnda harus bergabung di Channel/Grup saya untuk menggunakan saya\n\nSilakan Join Ke Channel Terlebih Dahulu</b>")
+FORCE_MSG = os.environ.get("FORCE_SUB_MESSAGE", "<b>Hello {first}\n\nAnda harus bergabung di Channel/Grup saya Terlebih dahulu untuk Melihat File yang saya Bagikan\n\nSilakan Join Ke Channel Terlebih Dahulu</b>")
 
 #Atur Teks Kustom Anda di sini, Simpan (None) untuk Menonaktifkan Teks Kustom
 CUSTOM_CAPTION = os.environ.get("CUSTOM_CAPTION", None)
 
-#Setel true jika Anda ingin Menonaktifkan tombol Bagikan Kiriman Saluran Anda
+#Setel True jika Anda ingin Menonaktifkan tombol Bagikan Kiriman Saluran Anda
 if os.environ.get("DISABLE_CHANNEL_BUTTON", None) == 'True':
     DISABLE_CHANNEL_BUTTON = True
 else:
