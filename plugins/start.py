@@ -231,7 +231,7 @@ async def ping_pong(client, m: Message):
         "<b>PONG!!</b>🏓 \n"
         f"<b>✣ Pinger -</b> <code>{delta_ping * 1000:.3f} ms<code>"
         f"<b>✣ Uptime -</b> <code>{START_TIME_ISO}</code>"
-        f"<b>✦҈͜͡Owner :</b> <code>{Owner}</code>"
+        f"<b>✦҈͜͡Owner :</b> <code>{OWNER}</code>"
     )
 
 
