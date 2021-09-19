@@ -1,6 +1,7 @@
 """Get id of the replied user
 Syntax: /id"""
 
+from bot import Bot
 from pyrogram import Client, filters
 from pyrogram.types import Message
 from pyrogram.types.messages_and_media import message
