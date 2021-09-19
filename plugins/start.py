@@ -210,9 +210,9 @@ async def send_text(client: Bot, message: Message):
 
 Jumlah Pengguna: <code>{total}</code>
 Berhasil: <code>{successful}</code>
-Gagal: <code>{unsuccessful}</code></b>
+Gagal: <code>{unsuccessful}</code>
 Pengguna diblokir: <code>{blocked}</code>
-Deleted Accounts: <code>{deleted}</code>"""
+Deleted Accounts: <code>{deleted}</code></b>"""
         
         return await pls_wait.edit(status)
 
@@ -225,12 +225,15 @@ Deleted Accounts: <code>{deleted}</code>"""
 @Client.on_message(filters.command("ping"))
 async def ping_pong(client, m: Message):
     start = time()
-    m_reply = await m.reply_text("<code>Pinging...<code>")
+    current_time = datetime.utcnow()
+    uptime_sec = (current_time - START_TIME).total_seconds()
+    uptime = await _human_time_duration(int(uptime_sec))
+    m_reply = await m.reply_text("Pinging...")
     delta_ping = time() - start
     await m_reply.edit_text(
         "<b>PONG!!</b>🏓 \n"
-        f"<b>✣ Pinger -</b> <code>{delta_ping * 1000:.3f} ms</code>\n"
-        f"<b>✣ Uptime -</b> <code>{START_TIME_ISO}</code>\n"
+        f"<b>✣ Pinger -</b> <code>{delta_ping * 1000:.3f}ms</code>\n"
+        f"<b>✣ Uptime -</b> <code>{uptime}</code>\n"
         f"<b>✦҈͜͡Owner :</b> <code>{OWNER}</code>"
     )
 
