@@ -4,7 +4,7 @@
 
 from pyrogram import __version__
 from bot import Bot
-from config import OWNER_ID
+from config import OWNER_ID, OWNER
 from pyrogram.types import Message, InlineKeyboardMarkup, InlineKeyboardButton, CallbackQuery
 
 @Bot.on_callback_query()
