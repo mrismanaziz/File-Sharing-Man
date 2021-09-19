@@ -48,7 +48,7 @@ class Bot(Client):
             sys.exit()
 
         self.set_parse_mode("html")
-        self.LOGGER(__name__).info(f"[🔥 BOT BERHASIL DIAKTIFKAN! 🔥]\n\nCreated by {OWNER}\nSubscribe https://t.me/Lunatic0de")
+        self.LOGGER(__name__).info(f"🔥 BERHASIL DIAKTIFKAN! 🔥\n\nBOT Dibuat oleh {OWNER}\nSubscribe https://t.me/Lunatic0de")
         self.username = usr_bot_me.username
 
     async def stop(self, *args):
