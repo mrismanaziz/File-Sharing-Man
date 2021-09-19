@@ -1,0 +1,74 @@
+{
+  "name": "File Sharing Man",
+  "description": "BOT File Sharing Bot store posts and it can access by special links",
+  "keywords": [
+    "telegram",
+    "file",
+    "sharing"
+  ],
+  "repository": "https://github.com/mrismanaziz/File-Sharing-Man",
+  "logo": "https://telegra.ph/file/9dc4e335feaaf6a214818.jpg",
+  "env": {
+    "TG_BOT_TOKEN": {
+      "description": "Masukan Bot token, Dapatkan dari t.me/BotFather",
+      "value": ""
+    },
+    "OWNER": {
+      "description": "Masukan User ID Telegram untuk Owner BOT",
+      "value": "Risman"
+    },
+    "OWNER_ID": {
+      "description": "Masukan User ID Telegram untuk Owner BOT",
+      "value": "844432220"
+    },
+    "APP_ID":{
+      "description": "Dapatkan APP ID di web my.telegram.org",
+      "value": ""
+    },
+    "API_HASH":{
+      "description": "Dapatkan API HASH di web my.telegram.org",
+      "value": ""
+    },
+    "CHANNEL_ID":{
+      "description": "Masukan ID Channel Untuk [Channel Database]",
+      "value": "-100"
+    },
+    "FORCE_SUB_CHANNEL":{
+      "description": "Masukan ID dari Channel Atau Group Untuk Wajib Subscribenya, jika ingin menonaktifkan fitur paksa Subscribenya, masukkan 0",
+      "value": "0"
+    },
+    "START_MESSAGE": {
+      "description": "Pesan /start memulai awalan ke bot, Gunakan format parsemode HTML",
+      "value": "<b>Hello {first}\n\nSaya dapat menyimpan file pribadi di Channel Tertentu dan pengguna lain dapat mengaksesnya dari link khusus.</b>"
+    },
+    "FORCE_SUB_MESSAGE": {
+      "description": "Pesan Paksa Subscribe bot, Gunakan Format parsemode HTML",
+      "value": "<b>Hello {first}\n\nAnda harus bergabung di Channel/Grup saya untuk menggunakan saya\n\nSilakan Join Ke Channel Terlebih Dahulu</b>"
+    },
+    "ADMINS": {
+      "description": "Masukan User ID untuk mendapatkan hak Admin BOT [Hanya dapat membuat link]",
+      "value": "",
+      "required": false
+    }
+  },
+  "addons": [
+    {
+    "plan": "heroku-postgresql",
+      "options": {
+        "version": "12"
+      }
+    }
+  ],
+  "buildpacks": [
+    {
+      "url": "heroku/python"
+    }
+  ],
+  "formation": {
+    "worker": {
+      "quantity": 1,
+      "size": "free"
+    }
+  }
+}
+
