@@ -7,7 +7,7 @@ from pyrogram.types import Message
 from pyrogram.types.messages_and_media import message
 
 
-@Bot.on_message(filters.command('id') & filters.private & subscribed)
+@Bot.on_message(filters.command('id') & filters.private)
 async def showid(client, message):
     chat_type = message.chat.type
 
