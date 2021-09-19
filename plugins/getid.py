@@ -28,21 +28,16 @@ async def showid(client, message):
                 f"<b>🙋‍♂️ Replied User ID</b>: <code>{message.reply_to_message.from_user.id}</code>"
             )
             file_info = get_file_id(message.reply_to_message)
-            if file_info:
-                _id += (
-                    f"<b>{file_info.message_type}</b>: "
-                    f"<code>{file_info.file_id}</code>\n"
-                )
         else:
             _id += (
                 "<b>👤 User ID</b>: <code>{message.from_user.id}</code>"
             )
             file_info = get_file_id(message)
-            if file_info:
-                _id += (
-                    f"<b>{file_info.message_type}</b>: "
-                    f"<code>{file_info.file_id}</code>\n"
-                )
+        if file_info:
+            _id += (
+                f"<b>{file_info.message_type}</b>: "
+                f"<code>{file_info.file_id}</code>\n"
+            )
         await message.reply_text(
             _id,
             quote=True

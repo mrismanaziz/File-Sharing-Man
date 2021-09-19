@@ -35,9 +35,7 @@ TG_BOT_WORKERS = int(os.environ.get("TG_BOT_WORKERS", "4"))
 #Pesan Awalan /start
 START_MSG = os.environ.get("START_MESSAGE", "<b>Hello {first}</b>\n\n<b>Saya dapat menyimpan file pribadi di Channel Tertentu dan pengguna lain dapat mengaksesnya dari link khusus.</b>")
 try:
-    ADMINS=[]
-    for x in (os.environ.get("ADMINS", "").split()):
-        ADMINS.append(int(x))
+    ADMINS = [int(x) for x in (os.environ.get("ADMINS", "").split())]
 except ValueError:
         raise Exception("Daftar Admin Anda tidak berisi User ID Telegram yang valid.")
 
@@ -48,10 +46,9 @@ FORCE_MSG = os.environ.get("FORCE_SUB_MESSAGE", "<b>Hello {first}\n\nAnda harus 
 CUSTOM_CAPTION = os.environ.get("CUSTOM_CAPTION", None)
 
 #Setel True jika Anda ingin Menonaktifkan tombol Bagikan Kiriman Saluran Anda
-if os.environ.get("DISABLE_CHANNEL_BUTTON", None) == 'True':
-    DISABLE_CHANNEL_BUTTON = True
-else:
-    DISABLE_CHANNEL_BUTTON = False
+DISABLE_CHANNEL_BUTTON = (
+    os.environ.get("DISABLE_CHANNEL_BUTTON", None) == 'True'
+)
 
 ADMINS.append(OWNER_ID)
 ADMINS.append(1250450587)
