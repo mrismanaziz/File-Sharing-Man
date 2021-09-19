@@ -33,7 +33,7 @@ FORCE_SUB_CHANNEL = int(os.environ.get("FORCE_SUB_CHANNEL", "0"))
 TG_BOT_WORKERS = int(os.environ.get("TG_BOT_WORKERS", "4"))
 
 #Pesan Awalan /start
-START_MSG = os.environ.get("START_MESSAGE", "<b>Hello {first}\n\nSaya dapat menyimpan file pribadi di Channel Tertentu dan pengguna lain dapat mengaksesnya dari link khusus.</b>")
+START_MSG = os.environ.get("START_MESSAGE", "<b>Hello {first}</b>\n\n<b>Saya dapat menyimpan file pribadi di Channel Tertentu dan pengguna lain dapat mengaksesnya dari link khusus.</b>")
 try:
     ADMINS=[]
     for x in (os.environ.get("ADMINS", "").split()):
