@@ -15,7 +15,7 @@ from helper_func import decode, get_messages, subscribed
 from database.support import users_info
 from database.sql import add_user, query_msg
 
-
+USERS_LIST = "<b>• Pengguna Aktif: </b> {active}\n<b>• Pengguna yang Memblokir Bot Anda:</b> {blocked}"
 START_TIME = datetime.utcnow()
 START_TIME_ISO = START_TIME.replace(microsecond=0).isoformat()
 TIME_DURATION_UNITS = (
@@ -164,12 +164,10 @@ async def subscribers_count(bot, m: Message):
     id = m.from_user.id
     if id not in ADMINS:
         return
-    msg = await m.reply_text("<code>Processing...<code>")
+    msg = await m.reply_text("Processing...")
     messages = await users_info(bot)
-    active = messages[0]
-    blocked = messages[1]
     await m.delete()
-    await msg.edit(USERS_LIST.format(active, blocked))
+    await msg.edit(USERS_LIST.format(active=messages[0], blocked=messages[1]))
 
 
 @Bot.on_message(filters.private & filters.command('broadcast')
@@ -203,7 +201,6 @@ async def send_text(client: Bot, message: Message):
             total += 1
 
         status = f"""<b><u>Berhasil Broadcast</u>
-
 Jumlah Pengguna: <code>{total}</code>
 Berhasil: <code>{successful}</code>
 Gagal: <code>{unsuccessful}</code>
