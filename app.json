@@ -50,12 +50,12 @@
       "value": "<b>Hello {first}\n\nAnda harus bergabung di Channel/Grup saya untuk menggunakan saya\n\nSilakan Join Ke Channel Terlebih Dahulu</b>"
     },
     "CHANNEL":{
-      "description": "Masukan Username Channel Untuk Wajib Subscribenya  [ Jangan Pake @ ]",
+      "description": "Masukan Username Channel anda Untuk Wajib Subscribenya [ Jangan Pake @ ]",
       "value": "Lunatic0de"
       "required": false
     },
     "GROUP":{
-      "description": "Masukan Username dari Group Untuk Wajib Subscribenya  [ Jangan Pake @ ]",
+      "description": "Masukan Username dari Group anda Untuk Wajib Subscribenya [ Jangan Pake @ ]",
       "value": "SharingUserbot"
       "required": false
     },
