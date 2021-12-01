@@ -30,8 +30,8 @@ async def cb_handler(message: Message, query: CallbackQuery):
             reply_markup=InlineKeyboardMarkup(
                 [[InlineKeyboardButton("ᴛᴜᴛᴜᴘ", callback_data="close")]]
             ),
-            disable_web_page_preview = True,
-            quote = True
+            disable_web_page_preview=True,
+            quote=True,
         )
     if data == "about":
         await query.message.edit_text(
