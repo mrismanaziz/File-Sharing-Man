@@ -19,8 +19,8 @@ START_TIME = datetime.utcnow()
 START_TIME_ISO = START_TIME.replace(microsecond=0).isoformat()
 TIME_DURATION_UNITS = (
     ("week", 60 * 60 * 24 * 7),
-    ("day", 60 * 60 * 24),
-    ("hour", 60 * 60),
+    ("day", 60 ** 2 * 24),
+    ("hour", 60 ** 2),
     ("min", 60),
     ("sec", 1),
 )
@@ -92,11 +92,7 @@ async def start_command(client: Client, message: Message):
             else:
                 caption = "" if not msg.caption else msg.caption.html
 
-            if DISABLE_CHANNEL_BUTTON:
-                reply_markup = msg.reply_markup
-            else:
-                reply_markup = None
-
+            reply_markup = msg.reply_markup if DISABLE_CHANNEL_BUTTON else None
             try:
                 await msg.copy(
                     chat_id=message.from_user.id,
@@ -115,7 +111,6 @@ async def start_command(client: Client, message: Message):
                 )
             except BaseException:
                 pass
-        return
     else:
         buttons = [
             [InlineKeyboardButton("• ᴛᴇɴᴛᴀɴɢ sᴀʏᴀ •", callback_data="about")],
@@ -141,7 +136,8 @@ async def start_command(client: Client, message: Message):
             disable_web_page_preview=True,
             quote=True,
         )
-        return
+
+    return
 
 
 @Bot.on_message(filters.command("start") & filters.private)
