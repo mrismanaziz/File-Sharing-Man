@@ -1,6 +1,6 @@
 {
   "name": "File Sharing Man",
-  "description": "BOT File Sharing Bot store posts and it can access by special links",
+  "description": "BOT Multi Force Subs File Sharing Bot berguna untuk menyimpan file dan dapat diakses melalui link khusus",
   "keywords": [
     "telegram",
     "file",
@@ -14,8 +14,8 @@
       "value": ""
     },
     "OWNER": {
-      "description": "Masukan User ID Telegram untuk Owner BOT",
-      "value": "Risman"
+      "description": "Masukan Username Telegram untuk Owner BOT [ Jangan Pake @ ]",
+      "value": "mrismanaziz"
     },
     "OWNER_ID": {
       "description": "Masukan User ID Telegram untuk Owner BOT",
@@ -34,7 +34,11 @@
       "value": "-100"
     },
     "FORCE_SUB_CHANNEL":{
-      "description": "Masukan ID dari Channel Atau Group Untuk Wajib Subscribenya, jika ingin menonaktifkan fitur paksa Subscribenya, masukkan 0",
+      "description": "Masukan ID dari Channel Atau Group Untuk Wajib Subscribenya",
+      "value": "0"
+    },
+    "FORCE_SUB_GROUP":{
+      "description": "Masukan ID dari Group Untuk Wajib Subscribenya",
       "value": "0"
     },
     "START_MESSAGE": {
@@ -44,6 +48,16 @@
     "FORCE_SUB_MESSAGE": {
       "description": "Pesan Paksa Subscribe bot, Gunakan Format parsemode HTML",
       "value": "<b>Hello {first}\n\nAnda harus bergabung di Channel/Grup saya untuk menggunakan saya\n\nSilakan Join Ke Channel Terlebih Dahulu</b>"
+    },
+    "CHANNEL":{
+      "description": "Masukan Username Channel Untuk Wajib Subscribenya  [ Jangan Pake @ ]",
+      "value": "Lunatic0de"
+      "required": false
+    },
+    "GROUP":{
+      "description": "Masukan Username dari Group Untuk Wajib Subscribenya  [ Jangan Pake @ ]",
+      "value": "SharingUserbot"
+      "required": false
     },
     "ADMINS": {
       "description": "Masukan User ID untuk mendapatkan hak Admin BOT [Hanya dapat membuat link]",
