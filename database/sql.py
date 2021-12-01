@@ -1,10 +1,11 @@
-import os
 import threading
-from sqlalchemy import create_engine
-from sqlalchemy import Column, TEXT, Numeric
+
+from sqlalchemy import TEXT, Column, Numeric, create_engine
 from sqlalchemy.ext.declarative import declarative_base
+from sqlalchemy.orm import scoped_session, sessionmaker
+
 from config import DB_URI
-from sqlalchemy.orm import sessionmaker, scoped_session
+
 
 def start() -> scoped_session:
     engine = create_engine(DB_URI, client_encoding="utf8")
@@ -18,6 +19,7 @@ SESSION = start()
 
 INSERTION_LOCK = threading.RLock()
 
+
 class Broadcast(BASE):
     __tablename__ = "broadcast"
     id = Column(Numeric, primary_key=True)
@@ -26,6 +28,7 @@ class Broadcast(BASE):
     def __init__(self, id, user_name):
         self.id = id
         self.user_name = user_name
+
 
 Broadcast.__table__.create(checkfirst=True)
 
@@ -40,11 +43,13 @@ async def add_user(id, user_name):
             SESSION.commit()
         else:
             pass
-          
+
+
 async def full_userbase():
     users = SESSION.query(Broadcast).all()
     SESSION.close()
     return users
+
 
 async def query_msg():
     try:
