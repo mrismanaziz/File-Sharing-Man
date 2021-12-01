@@ -12,11 +12,9 @@ from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup, Message
 
 from bot import Bot
 from config import ADMINS, CUSTOM_CAPTION, DISABLE_CHANNEL_BUTTON, FORCE_MSG, START_MSG
-from database.sql import add_user, query_msg
-from database.support import users_info
+from database.sql import add_user, full_userbase, query_msg
 from helper_func import decode, get_messages, subscribed
 
-USERS_LIST = "<b>• Pengguna Aktif: </b> {active}\n<b>• Pengguna yang Memblokir Bot Anda:</b> {blocked}"
 START_TIME = datetime.utcnow()
 START_TIME_ISO = START_TIME.replace(microsecond=0).isoformat()
 TIME_DURATION_UNITS = (
@@ -43,7 +41,10 @@ async def _human_time_duration(seconds):
 async def start_command(client: Client, message: Message):
     id = message.from_user.id
     user_name = "@" + message.from_user.username if message.from_user.username else None
-    await add_user(id, user_name)
+    try:
+        await add_user(id, user_name)
+    except:
+        pass
     text = message.text
     if len(text) > 7:
         try:
@@ -91,7 +92,11 @@ async def start_command(client: Client, message: Message):
             else:
                 caption = "" if not msg.caption else msg.caption.html
 
-            reply_markup = msg.reply_markup if DISABLE_CHANNEL_BUTTON else None
+            if DISABLE_CHANNEL_BUTTON:
+                reply_markup = msg.reply_markup
+            else:
+                reply_markup = None
+
             try:
                 await msg.copy(
                     chat_id=message.from_user.id,
@@ -110,6 +115,7 @@ async def start_command(client: Client, message: Message):
                 )
             except BaseException:
                 pass
+        return
     else:
         buttons = [
             [InlineKeyboardButton("• ᴛᴇɴᴛᴀɴɢ sᴀʏᴀ •", callback_data="about")],
@@ -135,8 +141,7 @@ async def start_command(client: Client, message: Message):
             disable_web_page_preview=True,
             quote=True,
         )
-
-    return
+        return
 
 
 @Bot.on_message(filters.command("start") & filters.private)
@@ -175,15 +180,13 @@ async def not_joined(client: Client, message: Message):
     )
 
 
-@Bot.on_message(filters.private & filters.command("users"))
-async def subscribers_count(bot, m: Message):
-    id = m.from_user.id
-    if id not in ADMINS:
-        return
-    msg = await m.reply_text("Processing...")
-    messages = await users_info(bot)
-    await m.delete()
-    await msg.edit(USERS_LIST.format(active=messages[0], blocked=messages[1]))
+@Bot.on_message(filters.command("users") & filters.private & filters.user(ADMINS))
+async def get_users(client: Bot, message: Message):
+    msg = await client.send_message(
+        chat_id=message.chat.id, text="<code>Processing ...</code>"
+    )
+    users = await full_userbase()
+    await msg.edit(f"{len(users)} <b>Pengguna menggunakan bot ini</b>")
 
 
 @Bot.on_message(filters.private & filters.command("broadcast") & filters.user(ADMINS))
@@ -198,7 +201,7 @@ async def send_text(client: Bot, message: Message):
         unsuccessful = 0
 
         pls_wait = await message.reply(
-            "<code>Broadcasting Message... Tunggu Sebentar...</code>"
+            "<code>Broadcasting Message Tunggu Sebentar...</code>"
         )
         for row in query:
             chat_id = int(row[0])
@@ -222,7 +225,7 @@ Jumlah Pengguna: <code>{total}</code>
 Berhasil: <code>{successful}</code>
 Gagal: <code>{unsuccessful}</code>
 Pengguna diblokir: <code>{blocked}</code>
-Deleted Accounts: <code>{deleted}</code></b>"""
+Akun Terhapus: <code>{deleted}</code></b>"""
 
         return await pls_wait.edit(status)
 
@@ -234,7 +237,7 @@ Deleted Accounts: <code>{deleted}</code></b>"""
         await msg.delete()
 
 
-@Client.on_message(filters.command("ping"))
+@Bot.on_message(filters.command("ping"))
 async def ping_pong(client, m: Message):
     start = time()
     current_time = datetime.utcnow()
@@ -249,7 +252,7 @@ async def ping_pong(client, m: Message):
     )
 
 
-@Client.on_message(filters.command("uptime"))
+@Bot.on_message(filters.command("uptime"))
 async def get_uptime(client, m: Message):
     current_time = datetime.utcnow()
     uptime_sec = (current_time - START_TIME).total_seconds()
