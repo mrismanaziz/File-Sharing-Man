@@ -14,20 +14,18 @@ from config import CHANNEL, GROUP, OWNER, START_MSG
 
 
 @Bot.on_callback_query()
-async def cb_handler(message: Message, query: CallbackQuery):
-    message.from_user.id
-    "@" + message.from_user.username if message.from_user.username else None
+async def cb_handler(bot: Client, query: CallbackQuery):
     data = query.data
     if data == "home":
         await query.message.edit_text(
             text=START_MSG.format(
-                first=message.from_user.first_name,
-                last=message.from_user.last_name,
+                first=query.from_user.first_name,
+                last=query.from_user.last_name,
                 username=None
-                if not message.from_user.username
-                else "@" + message.from_user.username,
-                mention=message.from_user.mention,
-                id=message.from_user.id,
+                if not query.from_user.username
+                else "@" + query.from_user.username,
+                mention=query.from_user.mention,
+                id=query.from_user.id,
             ),
             reply_markup=InlineKeyboardMarkup(
                 [[InlineKeyboardButton("ᴛᴜᴛᴜᴘ", callback_data="close")]]
