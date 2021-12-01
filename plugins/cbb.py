@@ -2,14 +2,14 @@
 # Recode by @mrismanaziz
 # t.me/SharingUserbot & t.me/Lunatic0de
 
-from pyrogram.types import CallbackQuery, InlineKeyboardButton, InlineKeyboardMarkup
+from pyrogram.types import CallbackQuery, InlineKeyboardButton, InlineKeyboardMarkup, Message
 
 from bot import Bot
 from config import CHANNEL, GROUP, OWNER, START_MSG
 
 
 @Bot.on_callback_query()
-async def cb_handler(client: Bot, query: CallbackQuery):
+async def cb_handler(client: Bot, message: Message, query: CallbackQuery):
     data = query.data
     if data == "home":
         await query.message.edit_text(
