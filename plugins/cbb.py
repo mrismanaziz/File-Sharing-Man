@@ -5,7 +5,7 @@
 from pyrogram.types import CallbackQuery, InlineKeyboardButton, InlineKeyboardMarkup
 
 from bot import Bot
-from config import CHANNEL, CUSTOM_CAPTION, GROUP, OWNER
+from config import CHANNEL, GROUP, START_MSG, OWNER
 
 
 @Bot.on_callback_query()
@@ -13,7 +13,13 @@ async def cb_handler(client: Bot, query: CallbackQuery):
     data = query.data
     if data == "home":
         await query.message.edit_text(
-            text=f"{CUSTOM_CAPTION}",
+            text = START_MSG.format(
+                first = message.from_user.first_name,
+                last = message.from_user.last_name,
+                username = None if not message.from_user.username else '@' + message.from_user.username,
+                mention = message.from_user.mention,
+                id = message.from_user.id
+            ),
             reply_markup=InlineKeyboardMarkup(
                 [[InlineKeyboardButton("ᴛᴜᴛᴜᴘ", callback_data="close")]]
             ),
