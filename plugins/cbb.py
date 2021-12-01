@@ -2,12 +2,7 @@
 # Recode by @mrismanaziz
 # t.me/SharingUserbot & t.me/Lunatic0de
 
-from pyrogram.types import (
-    CallbackQuery,
-    InlineKeyboardButton,
-    InlineKeyboardMarkup,
-    Message,
-)
+from pyrogram.types import CallbackQuery, InlineKeyboardButton, InlineKeyboardMarkup
 
 from bot import Bot
 from config import CHANNEL, GROUP, OWNER, START_MSG
