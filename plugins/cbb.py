@@ -11,18 +11,17 @@ from config import CHANNEL, CUSTOM_CAPTION, GROUP, OWNER
 @Bot.on_callback_query()
 async def cb_handler(client: Bot, query: CallbackQuery):
     data = query.data
-    if query.startswith("home"):
-        if query == "home":
-            chat_id = query.from_user.id
-            query.message.message_id
-            await query.message.delete()
-            await query.message.edit_text(
-                chat_id=chat_id,
-                text=f"{CUSTOM_CAPTION}",
-                reply_markup=InlineKeyboardMarkup(
-                    [[InlineKeyboardButton("ᴛᴜᴛᴜᴘ", callback_data="close")]]
-                ),
-            )
+    if data == "home":
+        chat_id = query.from_user.id
+        query.message.message_id
+        await query.message.delete()
+        await query.message.edit_text(
+            chat_id=chat_id,
+            text=f"{CUSTOM_CAPTION}",
+            reply_markup=InlineKeyboardMarkup(
+                [[InlineKeyboardButton("ᴛᴜᴛᴜᴘ", callback_data="close")]]
+            ),
+        )
     if data == "about":
         await query.message.edit_text(
             text=f"<b>Tentang Bot ini:\n\n • Owner: @{OWNER}\n • Channel: @{CHANNEL}\n • Group: @{GROUP}\n • Source Code: <a href='https://github.com/mrismanaziz/File-Sharing-Man'>Klik Disini</a></b>\n",
