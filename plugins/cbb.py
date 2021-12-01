@@ -9,8 +9,18 @@ from config import CHANNEL, GROUP, OWNER, START_MSG
 
 
 @Bot.on_callback_query()
-async def cb_handler(bot: Bot, query: CallbackQuery):
+async def cb_handler(client: Bot, query: CallbackQuery):
     data = query.data
+    buttons = [
+        [InlineKeyboardButton("• ᴛᴇɴᴛᴀɴɢ sᴀʏᴀ •", callback_data="about")],
+        [
+            InlineKeyboardButton("𝗖𝗛𝗔𝗡𝗡𝗘𝗟", url=client.invitelink),
+            InlineKeyboardButton("𝗚𝗥𝗢𝗨𝗣", url=client.invitelink2),
+        ],
+        [
+            InlineKeyboardButton("• ᴛᴜᴛᴜᴘ •", callback_data="close"),
+        ],
+    ]
     if data == "home":
         await query.message.edit_text(
             text=START_MSG.format(
@@ -22,9 +32,7 @@ async def cb_handler(bot: Bot, query: CallbackQuery):
                 mention=query.from_user.mention,
                 id=query.from_user.id,
             ),
-            reply_markup=InlineKeyboardMarkup(
-                [[InlineKeyboardButton("ᴛᴜᴛᴜᴘ", callback_data="close")]]
-            ),
+            reply_markup=InlineKeyboardMarkup(buttons),
             disable_web_page_preview=True,
         )
     if data == "about":
