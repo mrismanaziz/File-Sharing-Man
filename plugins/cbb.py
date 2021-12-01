@@ -18,8 +18,10 @@ async def cb_handler(client: Bot, query: CallbackQuery):
             await query.message.delete()
             await query.message.edit_text(
                 chat_id=chat_id,
-                text=Data.START.format(callback_query.from_user.mention, mention),
-                reply_markup=InlineKeyboardMarkup(Data.buttons),
+                text=f"{CUSTOM_CAPTION}",
+                reply_markup=InlineKeyboardMarkup(
+                    [[InlineKeyboardButton("ᴛᴜᴛᴜᴘ", callback_data="close")]]
+                ),
             )
     if data == "about":
         await query.message.edit_text(
