@@ -12,11 +12,7 @@ from config import CHANNEL, CUSTOM_CAPTION, GROUP, OWNER
 async def cb_handler(client: Bot, query: CallbackQuery):
     data = query.data
     if data == "home":
-        chat_id = query.from_user.id
-        query.message.message_id
-        await query.message.delete()
         await query.message.edit_text(
-            chat_id=chat_id,
             text=f"{CUSTOM_CAPTION}",
             reply_markup=InlineKeyboardMarkup(
                 [[InlineKeyboardButton("ᴛᴜᴛᴜᴘ", callback_data="close")]]
