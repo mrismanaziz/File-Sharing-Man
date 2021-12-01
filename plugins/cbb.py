@@ -3,7 +3,7 @@
 # t.me/SharingUserbot & t.me/Lunatic0de
 
 from bot import Bot
-from config import CHANNEL, GROUP, OWNER_ID, OWNER
+from config import CHANNEL, GROUP, OWNER
 from pyrogram.types import CallbackQuery, InlineKeyboardButton, InlineKeyboardMarkup
 
 
