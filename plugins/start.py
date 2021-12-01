@@ -3,46 +3,46 @@
 # t.me/SharingUserbot & t.me/Lunatic0de
 
 import asyncio
-from time import time
 from datetime import datetime
+from time import time
+
 from pyrogram import Client, filters
+from pyrogram.errors import FloodWait, InputUserDeactivated, UserIsBlocked
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup, Message
-from pyrogram.errors import FloodWait, UserIsBlocked, InputUserDeactivated
 
 from bot import Bot
 from config import ADMINS, CUSTOM_CAPTION, DISABLE_CHANNEL_BUTTON, FORCE_MSG, START_MSG
-from helper_func import decode, get_messages, subscribed
-from database.support import users_info
 from database.sql import add_user, query_msg
+from database.support import users_info
+from helper_func import decode, get_messages, subscribed
 
 USERS_LIST = "<b>• Pengguna Aktif: </b> {active}\n<b>• Pengguna yang Memblokir Bot Anda:</b> {blocked}"
 START_TIME = datetime.utcnow()
 START_TIME_ISO = START_TIME.replace(microsecond=0).isoformat()
 TIME_DURATION_UNITS = (
-    ('week', 60 * 60 * 24 * 7),
-    ('day', 60 * 60 * 24),
-    ('hour', 60 * 60),
-    ('min', 60),
-    ('sec', 1)
+    ("week", 60 * 60 * 24 * 7),
+    ("day", 60 * 60 * 24),
+    ("hour", 60 * 60),
+    ("min", 60),
+    ("sec", 1),
 )
 
 
 async def _human_time_duration(seconds):
     if seconds == 0:
-        return 'inf'
+        return "inf"
     parts = []
     for unit, div in TIME_DURATION_UNITS:
         amount, seconds = divmod(int(seconds), div)
         if amount > 0:
-            parts.append('{} {}{}'
-                         .format(amount, unit, "" if amount == 1 else "s"))
-    return ', '.join(parts)
+            parts.append("{} {}{}".format(amount, unit, "" if amount == 1 else "s"))
+    return ", ".join(parts)
 
 
-@Bot.on_message(filters.command('start') & filters.private & subscribed)
+@Bot.on_message(filters.command("start") & filters.private & subscribed)
 async def start_command(client: Client, message: Message):
     id = message.from_user.id
-    user_name = '@' + message.from_user.username if message.from_user.username else None
+    user_name = "@" + message.from_user.username if message.from_user.username else None
     await add_user(id, user_name)
     text = message.text
     if len(text) > 7:
@@ -86,17 +86,28 @@ async def start_command(client: Client, message: Message):
             if bool(CUSTOM_CAPTION) & bool(msg.document):
                 caption = CUSTOM_CAPTION.format(
                     previouscaption="" if not msg.caption else msg.caption.html,
-                    filename=msg.document.file_name)
+                    filename=msg.document.file_name,
+                )
             else:
                 caption = "" if not msg.caption else msg.caption.html
 
             reply_markup = msg.reply_markup if DISABLE_CHANNEL_BUTTON else None
             try:
-                await msg.copy(chat_id=message.from_user.id, caption=caption, parse_mode='html', reply_markup=reply_markup)
+                await msg.copy(
+                    chat_id=message.from_user.id,
+                    caption=caption,
+                    parse_mode="html",
+                    reply_markup=reply_markup,
+                )
                 await asyncio.sleep(0.5)
             except FloodWait as e:
                 await asyncio.sleep(e.x)
-                await msg.copy(chat_id=message.from_user.id, caption=caption, parse_mode='html', reply_markup=reply_markup)
+                await msg.copy(
+                    chat_id=message.from_user.id,
+                    caption=caption,
+                    parse_mode="html",
+                    reply_markup=reply_markup,
+                )
             except BaseException:
                 pass
     else:
@@ -114,19 +125,21 @@ async def start_command(client: Client, message: Message):
             text=START_MSG.format(
                 first=message.from_user.first_name,
                 last=message.from_user.last_name,
-                username=None if not message.from_user.username else '@' + message.from_user.username,
+                username=None
+                if not message.from_user.username
+                else "@" + message.from_user.username,
                 mention=message.from_user.mention,
-                id=message.from_user.id
+                id=message.from_user.id,
             ),
             reply_markup=InlineKeyboardMarkup(buttons),
             disable_web_page_preview=True,
-            quote=True
+            quote=True,
         )
 
     return
 
 
-@Bot.on_message(filters.command('start') & filters.private)
+@Bot.on_message(filters.command("start") & filters.private)
 async def not_joined(client: Client, message: Message):
     buttons = [
         [
@@ -138,8 +151,8 @@ async def not_joined(client: Client, message: Message):
         buttons.append(
             [
                 InlineKeyboardButton(
-                    text='ᴄᴏʙᴀ ʟᴀɢɪ',
-                    url=f"https://t.me/{client.username}?start={message.command[1]}"
+                    text="ᴄᴏʙᴀ ʟᴀɢɪ",
+                    url=f"https://t.me/{client.username}?start={message.command[1]}",
                 )
             ]
         )
@@ -150,17 +163,19 @@ async def not_joined(client: Client, message: Message):
         text=FORCE_MSG.format(
             first=message.from_user.first_name,
             last=message.from_user.last_name,
-            username=None if not message.from_user.username else '@' + message.from_user.username,
+            username=None
+            if not message.from_user.username
+            else "@" + message.from_user.username,
             mention=message.from_user.mention,
-            id=message.from_user.id
+            id=message.from_user.id,
         ),
         reply_markup=InlineKeyboardMarkup(buttons),
         quote=True,
-        disable_web_page_preview=True
+        disable_web_page_preview=True,
     )
 
 
-@Bot.on_message(filters.private & filters.command('users'))
+@Bot.on_message(filters.private & filters.command("users"))
 async def subscribers_count(bot, m: Message):
     id = m.from_user.id
     if id not in ADMINS:
@@ -171,8 +186,7 @@ async def subscribers_count(bot, m: Message):
     await msg.edit(USERS_LIST.format(active=messages[0], blocked=messages[1]))
 
 
-@Bot.on_message(filters.private & filters.command('broadcast')
-                & filters.user(ADMINS))
+@Bot.on_message(filters.private & filters.command("broadcast") & filters.user(ADMINS))
 async def send_text(client: Bot, message: Message):
     if message.reply_to_message:
         query = await query_msg()
@@ -183,7 +197,9 @@ async def send_text(client: Bot, message: Message):
         deleted = 0
         unsuccessful = 0
 
-        pls_wait = await message.reply("<code>Broadcasting Message... Tunggu Sebentar...</code>")
+        pls_wait = await message.reply(
+            "<code>Broadcasting Message... Tunggu Sebentar...</code>"
+        )
         for row in query:
             chat_id = int(row[0])
             try:
@@ -211,7 +227,9 @@ Deleted Accounts: <code>{deleted}</code></b>"""
         return await pls_wait.edit(status)
 
     else:
-        msg = await message.reply("<code>Gunakan Perintah ini Harus Sambil Reply ke pesan telegram yang ingin di Broadcast.</code>")
+        msg = await message.reply(
+            "<code>Gunakan Perintah ini Harus Sambil Reply ke pesan telegram yang ingin di Broadcast.</code>"
+        )
         await asyncio.sleep(8)
         await msg.delete()
 

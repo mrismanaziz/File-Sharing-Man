@@ -2,9 +2,10 @@
 # Recode by @mrismanaziz
 # t.me/SharingUserbot & t.me/Lunatic0de
 
+from pyrogram.types import CallbackQuery, InlineKeyboardButton, InlineKeyboardMarkup
+
 from bot import Bot
 from config import CHANNEL, GROUP, OWNER
-from pyrogram.types import CallbackQuery, InlineKeyboardButton, InlineKeyboardMarkup
 
 
 @Bot.on_callback_query()
@@ -15,12 +16,8 @@ async def cb_handler(client: Bot, query: CallbackQuery):
             text=f"<b>• Owner: @{OWNER}</a>\n• Channel: @{CHANNEL}\n• Group: @{GROUP}</b>\n<b>• Source Code: <a href='https://github.com/mrismanaziz/File-Sharing-Man'>Klik Disini</a></b>\n",
             disable_web_page_preview=True,
             reply_markup=InlineKeyboardMarkup(
-                [
-                    [
-                        InlineKeyboardButton("ᴛᴜᴛᴜᴘ", callback_data="close")
-                    ]
-                ]
-            )
+                [[InlineKeyboardButton("ᴛᴜᴛᴜᴘ", callback_data="close")]]
+            ),
         )
     elif data == "close":
         await query.message.delete()

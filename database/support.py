@@ -3,8 +3,10 @@
 # t.me/SharingUserbot & t.me/Lunatic0de
 
 import asyncio
-from database.sql import query_msg
+
 from pyrogram.errors import FloodWait
+
+from database.sql import query_msg
 
 
 async def users_info(bot):

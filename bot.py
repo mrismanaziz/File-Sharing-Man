@@ -2,10 +2,21 @@
 # Recode by @mrismanaziz
 # t.me/SharingUserbot & t.me/Lunatic0de
 
-from pyrogram import Client
 import sys
 
-from config import API_HASH, APP_ID, LOGGER, TG_BOT_TOKEN, TG_BOT_WORKERS, FORCE_SUB_CHANNEL, FORCE_SUB_GROUP, CHANNEL_ID, OWNER
+from pyrogram import Client
+
+from config import (
+    API_HASH,
+    APP_ID,
+    CHANNEL_ID,
+    FORCE_SUB_CHANNEL,
+    FORCE_SUB_GROUP,
+    LOGGER,
+    OWNER,
+    TG_BOT_TOKEN,
+    TG_BOT_WORKERS,
+)
 
 
 class Bot(Client):
@@ -14,11 +25,9 @@ class Bot(Client):
             "Bot",
             api_hash=API_HASH,
             api_id=APP_ID,
-            plugins={
-                "root": "plugins"
-            },
+            plugins={"root": "plugins"},
             workers=TG_BOT_WORKERS,
-            bot_token=TG_BOT_TOKEN
+            bot_token=TG_BOT_TOKEN,
         )
         self.LOGGER = LOGGER
 
@@ -33,11 +42,14 @@ class Bot(Client):
             except Exception as a:
                 self.LOGGER(__name__).warning(a)
                 self.LOGGER(__name__).warning(
-                    "Bot tidak dapat Mengambil link Undangan dari FORCE_SUB_CHANNEL!")
+                    "Bot tidak dapat Mengambil link Undangan dari FORCE_SUB_CHANNEL!"
+                )
                 self.LOGGER(__name__).warning(
-                    f"Silakan periksa kembali var FORCE_SUB_CHANNEL dan Pastikan Bot anda Admin di Channel dengan izin link invite Pengguna melalui link undangan, Subs Channel Saat Ini: {FORCE_SUB_CHANNEL}")
+                    f"Silakan periksa kembali var FORCE_SUB_CHANNEL dan Pastikan Bot anda Admin di Channel dengan izin link invite Pengguna melalui link undangan, Subs Channel Saat Ini: {FORCE_SUB_CHANNEL}"
+                )
                 self.LOGGER(__name__).info(
-                    "\nBot Berhenti. Gabung Group https://t.me/SharingUserbot untuk Bantuan")
+                    "\nBot Berhenti. Gabung Group https://t.me/SharingUserbot untuk Bantuan"
+                )
                 sys.exit()
         if FORCE_SUB_GROUP:
             try:
@@ -46,11 +58,14 @@ class Bot(Client):
             except Exception as a:
                 self.LOGGER(__name__).warning(a)
                 self.LOGGER(__name__).warning(
-                    "Bot tidak dapat Mengambil link Undangan dari FORCE_SUB_GROUP!")
+                    "Bot tidak dapat Mengambil link Undangan dari FORCE_SUB_GROUP!"
+                )
                 self.LOGGER(__name__).warning(
-                    f"Silakan periksa kembali var FORCE_SUB_GROUP dan Pastikan Bot anda Admin di Channel dengan izin link invite Pengguna melalui link undangan, Subs Group Saat Ini: {FORCE_SUB_GROUP}")
+                    f"Silakan periksa kembali var FORCE_SUB_GROUP dan Pastikan Bot anda Admin di Channel dengan izin link invite Pengguna melalui link undangan, Subs Group Saat Ini: {FORCE_SUB_GROUP}"
+                )
                 self.LOGGER(__name__).info(
-                    "\nBot Berhenti. Gabung Group https://t.me/SharingUserbot untuk Bantuan")
+                    "\nBot Berhenti. Gabung Group https://t.me/SharingUserbot untuk Bantuan"
+                )
                 sys.exit()
         try:
             db_channel = await self.get_chat(CHANNEL_ID)
@@ -60,14 +75,17 @@ class Bot(Client):
         except Exception as e:
             self.LOGGER(__name__).warning(e)
             self.LOGGER(__name__).warning(
-                f"Pastikan Bot adalah Admin di Channel DataBase, dan Periksa kembali Nilai CHANNEL_ID, Nilai Saat Ini: {CHANNEL_ID}")
+                f"Pastikan Bot adalah Admin di Channel DataBase, dan Periksa kembali Nilai CHANNEL_ID, Nilai Saat Ini: {CHANNEL_ID}"
+            )
             self.LOGGER(__name__).info(
-                "\nBot Berhenti. Gabung Group https://t.me/SharingUserbot untuk Bantuan")
+                "\nBot Berhenti. Gabung Group https://t.me/SharingUserbot untuk Bantuan"
+            )
             sys.exit()
 
         self.set_parse_mode("html")
         self.LOGGER(__name__).info(
-            f"[🔥 BERHASIL DIAKTIFKAN! 🔥]\n\nBOT Dibuat oleh {OWNER}\nJangan Lupa Subscribe @Lunatic0de")
+            f"[🔥 BERHASIL DIAKTIFKAN! 🔥]\n\nBOT Dibuat oleh {OWNER}\nJangan Lupa Subscribe @Lunatic0de"
+        )
         self.username = usr_bot_me.username
 
     async def stop(self, *args):
