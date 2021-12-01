@@ -2,23 +2,30 @@
 # Recode by @mrismanaziz
 # t.me/SharingUserbot & t.me/Lunatic0de
 
+import asyncio
 import base64
 import re
-import asyncio
+
 from pyrogram import filters
-from config import FORCE_SUB_CHANNEL, ADMINS
-from pyrogram.errors.exceptions.bad_request_400 import UserNotParticipant
 from pyrogram.errors import FloodWait
+from pyrogram.errors.exceptions.bad_request_400 import UserNotParticipant
+
+from config import ADMINS, FORCE_SUB_CHANNEL, FORCE_SUB_GROUP
 
 
 async def is_subscribed(filter, client, update):
     if not FORCE_SUB_CHANNEL:
         return True
+    if not FORCE_SUB_GROUP:
+        return True
     user_id = update.from_user.id
     if user_id in ADMINS:
         return True
     try:
-        member = await client.get_chat_member(chat_id=FORCE_SUB_CHANNEL, user_id=user_id)
+        member = await client.get_chat_member(
+            chat_id=FORCE_SUB_CHANNEL, user_id=user_id
+        )
+        member = await client.get_chat_member(chat_id=FORCE_SUB_GROUP, user_id=user_id)
     except UserNotParticipant:
         return False
 
@@ -41,17 +48,15 @@ async def get_messages(client, message_ids):
     messages = []
     total_messages = 0
     while total_messages != len(message_ids):
-        temb_ids = message_ids[total_messages:total_messages + 200]
+        temb_ids = message_ids[total_messages : total_messages + 200]
         try:
             msgs = await client.get_messages(
-                chat_id=client.db_channel.id,
-                message_ids=temb_ids
+                chat_id=client.db_channel.id, message_ids=temb_ids
             )
         except FloodWait as e:
             await asyncio.sleep(e.x)
             msgs = await client.get_messages(
-                chat_id=client.db_channel.id,
-                message_ids=temb_ids
+                chat_id=client.db_channel.id, message_ids=temb_ids
             )
         except BaseException:
             pass
@@ -66,11 +71,7 @@ async def get_message_id(client, message):
         and message.forward_from_chat.id == client.db_channel.id
     ):
         return message.forward_from_message_id
-    elif (
-        message.forward_from_chat
-        or message.forward_sender_name
-        or not message.text
-    ):
+    elif message.forward_from_chat or message.forward_sender_name or not message.text:
         return 0
     else:
         pattern = "https://t.me/(?:c/)?(.*)/(\\d+)"
@@ -84,5 +85,6 @@ async def get_message_id(client, message):
                 return msg_id
         elif channel_id == client.db_channel.username:
             return msg_id
+
 
 subscribed = filters.create(is_subscribed)

@@ -3,47 +3,48 @@
 # t.me/SharingUserbot & t.me/Lunatic0de
 
 import asyncio
-from time import time
 from datetime import datetime
+from time import time
+
 from pyrogram import Client, filters
+from pyrogram.errors import FloodWait, InputUserDeactivated, UserIsBlocked
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup, Message
-from pyrogram.errors import FloodWait, UserIsBlocked, InputUserDeactivated
 
 from bot import Bot
 from config import ADMINS, CUSTOM_CAPTION, DISABLE_CHANNEL_BUTTON, FORCE_MSG, START_MSG
+from database.sql import add_user, full_userbase, query_msg
 from helper_func import decode, get_messages, subscribed
-from database.support import users_info
-from database.sql import add_user, query_msg
 
-USERS_LIST = "<b>• Pengguna Aktif: </b> {active}\n<b>• Pengguna yang Memblokir Bot Anda:</b> {blocked}"
 START_TIME = datetime.utcnow()
 START_TIME_ISO = START_TIME.replace(microsecond=0).isoformat()
 TIME_DURATION_UNITS = (
-    ('week', 60 * 60 * 24 * 7),
-    ('day', 60 * 60 * 24),
-    ('hour', 60 * 60),
-    ('min', 60),
-    ('sec', 1)
+    ("week", 60 * 60 * 24 * 7),
+    ("day", 60 ** 2 * 24),
+    ("hour", 60 ** 2),
+    ("min", 60),
+    ("sec", 1),
 )
 
 
 async def _human_time_duration(seconds):
     if seconds == 0:
-        return 'inf'
+        return "inf"
     parts = []
     for unit, div in TIME_DURATION_UNITS:
         amount, seconds = divmod(int(seconds), div)
         if amount > 0:
-            parts.append('{} {}{}'
-                         .format(amount, unit, "" if amount == 1 else "s"))
-    return ', '.join(parts)
+            parts.append("{} {}{}".format(amount, unit, "" if amount == 1 else "s"))
+    return ", ".join(parts)
 
 
-@Bot.on_message(filters.command('start') & filters.private & subscribed)
+@Bot.on_message(filters.command("start") & filters.private & subscribed)
 async def start_command(client: Client, message: Message):
     id = message.from_user.id
-    user_name = '@' + message.from_user.username if message.from_user.username else None
-    await add_user(id, user_name)
+    user_name = "@" + message.from_user.username if message.from_user.username else None
+    try:
+        await add_user(id, user_name)
+    except:
+        pass
     text = message.text
     if len(text) > 7:
         try:
@@ -86,59 +87,73 @@ async def start_command(client: Client, message: Message):
             if bool(CUSTOM_CAPTION) & bool(msg.document):
                 caption = CUSTOM_CAPTION.format(
                     previouscaption="" if not msg.caption else msg.caption.html,
-                    filename=msg.document.file_name)
+                    filename=msg.document.file_name,
+                )
             else:
                 caption = "" if not msg.caption else msg.caption.html
 
             reply_markup = msg.reply_markup if DISABLE_CHANNEL_BUTTON else None
             try:
-                await msg.copy(chat_id=message.from_user.id, caption=caption, parse_mode='html', reply_markup=reply_markup)
+                await msg.copy(
+                    chat_id=message.from_user.id,
+                    caption=caption,
+                    parse_mode="html",
+                    reply_markup=reply_markup,
+                )
                 await asyncio.sleep(0.5)
             except FloodWait as e:
                 await asyncio.sleep(e.x)
-                await msg.copy(chat_id=message.from_user.id, caption=caption, parse_mode='html', reply_markup=reply_markup)
+                await msg.copy(
+                    chat_id=message.from_user.id,
+                    caption=caption,
+                    parse_mode="html",
+                    reply_markup=reply_markup,
+                )
             except BaseException:
                 pass
     else:
-        reply_markup = InlineKeyboardMarkup(
+        buttons = [
+            [InlineKeyboardButton("• ᴛᴇɴᴛᴀɴɢ sᴀʏᴀ •", callback_data="about")],
             [
-                [
-                    InlineKeyboardButton("😎 Tentang Saya", callback_data="about"),
-                    InlineKeyboardButton("🗑 Close", callback_data="close")
-                ]
-            ]
-        )
+                InlineKeyboardButton("𝗖𝗛𝗔𝗡𝗡𝗘𝗟", url=client.invitelink),
+                InlineKeyboardButton("𝗚𝗥𝗢𝗨𝗣", url=client.invitelink2),
+            ],
+            [
+                InlineKeyboardButton("• ᴛᴜᴛᴜᴘ •", callback_data="close"),
+            ],
+        ]
         await message.reply_text(
             text=START_MSG.format(
                 first=message.from_user.first_name,
                 last=message.from_user.last_name,
-                username=None if not message.from_user.username else '@' + message.from_user.username,
+                username=None
+                if not message.from_user.username
+                else "@" + message.from_user.username,
                 mention=message.from_user.mention,
-                id=message.from_user.id
+                id=message.from_user.id,
             ),
-            reply_markup=reply_markup,
+            reply_markup=InlineKeyboardMarkup(buttons),
             disable_web_page_preview=True,
-            quote=True
+            quote=True,
         )
 
     return
 
 
-@Bot.on_message(filters.command('start') & filters.private)
+@Bot.on_message(filters.command("start") & filters.private)
 async def not_joined(client: Client, message: Message):
     buttons = [
         [
-            InlineKeyboardButton(
-                "Join Channel",
-                url=client.invitelink)
-        ]
+            InlineKeyboardButton("𝗖𝗛𝗔𝗡𝗡𝗘𝗟", url=client.invitelink),
+            InlineKeyboardButton("𝗚𝗥𝗢𝗨𝗣", url=client.invitelink2),
+        ],
     ]
     try:
         buttons.append(
             [
                 InlineKeyboardButton(
-                    text='Coba Lagi',
-                    url=f"https://t.me/{client.username}?start={message.command[1]}"
+                    text="ᴄᴏʙᴀ ʟᴀɢɪ",
+                    url=f"https://t.me/{client.username}?start={message.command[1]}",
                 )
             ]
         )
@@ -149,29 +164,28 @@ async def not_joined(client: Client, message: Message):
         text=FORCE_MSG.format(
             first=message.from_user.first_name,
             last=message.from_user.last_name,
-            username=None if not message.from_user.username else '@' + message.from_user.username,
+            username=None
+            if not message.from_user.username
+            else "@" + message.from_user.username,
             mention=message.from_user.mention,
-            id=message.from_user.id
+            id=message.from_user.id,
         ),
         reply_markup=InlineKeyboardMarkup(buttons),
         quote=True,
-        disable_web_page_preview=True
+        disable_web_page_preview=True,
     )
 
 
-@Bot.on_message(filters.private & filters.command('users'))
-async def subscribers_count(bot, m: Message):
-    id = m.from_user.id
-    if id not in ADMINS:
-        return
-    msg = await m.reply_text("Processing...")
-    messages = await users_info(bot)
-    await m.delete()
-    await msg.edit(USERS_LIST.format(active=messages[0], blocked=messages[1]))
+@Bot.on_message(filters.command("users") & filters.private & filters.user(ADMINS))
+async def get_users(client: Bot, message: Message):
+    msg = await client.send_message(
+        chat_id=message.chat.id, text="<code>Processing ...</code>"
+    )
+    users = await full_userbase()
+    await msg.edit(f"{len(users)} <b>Pengguna menggunakan bot ini</b>")
 
 
-@Bot.on_message(filters.private & filters.command('broadcast')
-                & filters.user(ADMINS))
+@Bot.on_message(filters.private & filters.command("broadcast") & filters.user(ADMINS))
 async def send_text(client: Bot, message: Message):
     if message.reply_to_message:
         query = await query_msg()
@@ -182,7 +196,9 @@ async def send_text(client: Bot, message: Message):
         deleted = 0
         unsuccessful = 0
 
-        pls_wait = await message.reply("<code>Broadcasting Message... Tunggu Sebentar...</code>")
+        pls_wait = await message.reply(
+            "<code>Broadcasting Message Tunggu Sebentar...</code>"
+        )
         for row in query:
             chat_id = int(row[0])
             try:
@@ -205,17 +221,19 @@ Jumlah Pengguna: <code>{total}</code>
 Berhasil: <code>{successful}</code>
 Gagal: <code>{unsuccessful}</code>
 Pengguna diblokir: <code>{blocked}</code>
-Deleted Accounts: <code>{deleted}</code></b>"""
+Akun Terhapus: <code>{deleted}</code></b>"""
 
         return await pls_wait.edit(status)
 
     else:
-        msg = await message.reply("<code>Gunakan Perintah ini Harus Sambil Reply ke pesan telegram yang ingin di Broadcast.</code>")
+        msg = await message.reply(
+            "<code>Gunakan Perintah ini Harus Sambil Reply ke pesan telegram yang ingin di Broadcast.</code>"
+        )
         await asyncio.sleep(8)
         await msg.delete()
 
 
-@Client.on_message(filters.command("ping"))
+@Bot.on_message(filters.command("ping"))
 async def ping_pong(client, m: Message):
     start = time()
     current_time = datetime.utcnow()
@@ -230,7 +248,7 @@ async def ping_pong(client, m: Message):
     )
 
 
-@Client.on_message(filters.command("uptime"))
+@Bot.on_message(filters.command("uptime"))
 async def get_uptime(client, m: Message):
     current_time = datetime.utcnow()
     uptime_sec = (current_time - START_TIME).total_seconds()

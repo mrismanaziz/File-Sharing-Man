@@ -1,12 +1,9 @@
-# (©)Codexbotz
-# Recode by @mrismanaziz
-# t.me/SharingUserbot & t.me/Lunatic0de
-
 import threading
-from sqlalchemy import create_engine
-from sqlalchemy import Column, TEXT, Numeric
+
+from sqlalchemy import TEXT, Column, Numeric, create_engine
 from sqlalchemy.ext.declarative import declarative_base
-from sqlalchemy.orm import sessionmaker, scoped_session
+from sqlalchemy.orm import scoped_session, sessionmaker
+
 from config import DB_URI
 
 
@@ -44,6 +41,12 @@ async def add_user(id, user_name):
             usr = Broadcast(id, user_name)
             SESSION.add(usr)
             SESSION.commit()
+
+
+async def full_userbase():
+    users = SESSION.query(Broadcast).all()
+    SESSION.close()
+    return users
 
 
 async def query_msg():
