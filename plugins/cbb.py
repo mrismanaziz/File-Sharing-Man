@@ -26,7 +26,6 @@ async def cb_handler(bot: Bot, query: CallbackQuery):
                 [[InlineKeyboardButton("ᴛᴜᴛᴜᴘ", callback_data="close")]]
             ),
             disable_web_page_preview=True,
-            quote=True,
         )
     if data == "about":
         await query.message.edit_text(
