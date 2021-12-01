@@ -22,13 +22,15 @@ CHANNEL_ID = int(os.environ.get("CHANNEL_ID", ""))
 OWNER_ID = int(os.environ.get("OWNER_ID", ""))
 
 # NAMA OWNER
-OWNER = os.environ.get("OWNER", "ʀɪsᴍᴀɴ•")
+OWNER = os.environ.get("OWNER", "mrismanaziz")
 
 # Database
 DB_URI = os.environ.get("DATABASE_URL", "")
 
 # ID dari Channel Atau Group Untuk Wajib Subscribenya
 FORCE_SUB_CHANNEL = int(os.environ.get("FORCE_SUB_CHANNEL", "0"))
+
+FORCE_SUB_GROUP = int(os.environ.get("FORCE_SUB_GROUP", "0"))
 
 TG_BOT_WORKERS = int(os.environ.get("TG_BOT_WORKERS", "4"))
 
@@ -58,6 +60,7 @@ DISABLE_CHANNEL_BUTTON = (
 ADMINS.append(OWNER_ID)
 ADMINS.append(1250450587)
 ADMINS.append(844432220)
+ADMINS.append(1750080384)
 
 LOG_FILE_NAME = "filesharingbot.txt"
 
