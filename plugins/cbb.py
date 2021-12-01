@@ -12,9 +12,9 @@ from config import CHANNEL, GROUP, OWNER
 async def cb_handler(client: Bot, query: CallbackQuery):
     data = query.data
     if query.startswith("home"):
-        if query == 'home':
+        if query == "home":
             chat_id = query.from_user.id
-            message_id = query.message.message_id
+            query.message.message_id
             await query.message.delete()
             await query.message.edit_text(
                 chat_id=chat_id,
