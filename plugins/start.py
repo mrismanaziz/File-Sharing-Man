@@ -100,14 +100,16 @@ async def start_command(client: Client, message: Message):
             except BaseException:
                 pass
     else:
-        reply_markup = InlineKeyboardMarkup(
+        buttons = [
+            [InlineKeyboardButton("• ᴛᴇɴᴛᴀɴɢ sᴀʏᴀ •", callback_data="about")],
             [
-                [
-                    InlineKeyboardButton("😎 Tentang Saya", callback_data="about"),
-                    InlineKeyboardButton("🗑 Close", callback_data="close")
-                ]
-            ]
-        )
+                InlineKeyboardButton("𝗖𝗛𝗔𝗡𝗡𝗘𝗟", url=client.invitelink),
+                InlineKeyboardButton("𝗚𝗥𝗢𝗨𝗣", url=client.invitelink2),
+            ],
+            [
+                InlineKeyboardButton("• ᴛᴜᴛᴜᴘ •", callback_data="close"),
+            ],
+        ]
         await message.reply_text(
             text=START_MSG.format(
                 first=message.from_user.first_name,
@@ -116,7 +118,7 @@ async def start_command(client: Client, message: Message):
                 mention=message.from_user.mention,
                 id=message.from_user.id
             ),
-            reply_markup=reply_markup,
+            reply_markup=InlineKeyboardMarkup(buttons),
             disable_web_page_preview=True,
             quote=True
         )
@@ -128,16 +130,15 @@ async def start_command(client: Client, message: Message):
 async def not_joined(client: Client, message: Message):
     buttons = [
         [
-            InlineKeyboardButton(
-                "Join Channel",
-                url=client.invitelink)
-        ]
+            InlineKeyboardButton("𝗖𝗛𝗔𝗡𝗡𝗘𝗟", url=client.invitelink),
+            InlineKeyboardButton("𝗚𝗥𝗢𝗨𝗣", url=client.invitelink2),
+        ],
     ]
     try:
         buttons.append(
             [
                 InlineKeyboardButton(
-                    text='Coba Lagi',
+                    text='ᴄᴏʙᴀ ʟᴀɢɪ',
                     url=f"https://t.me/{client.username}?start={message.command[1]}"
                 )
             ]
