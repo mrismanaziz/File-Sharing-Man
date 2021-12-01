@@ -14,7 +14,7 @@ from config import CHANNEL, GROUP, OWNER, START_MSG
 
 
 @Bot.on_callback_query()
-async def cb_handler(client: Bot, message: Message, query: CallbackQuery):
+async def cb_handler(message: Message, query: CallbackQuery):
     data = query.data
     if data == "home":
         await query.message.edit_text(
@@ -30,6 +30,8 @@ async def cb_handler(client: Bot, message: Message, query: CallbackQuery):
             reply_markup=InlineKeyboardMarkup(
                 [[InlineKeyboardButton("ᴛᴜᴛᴜᴘ", callback_data="close")]]
             ),
+            disable_web_page_preview = True,
+            quote = True
         )
     if data == "about":
         await query.message.edit_text(
