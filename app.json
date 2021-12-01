@@ -51,12 +51,12 @@
     },
     "CHANNEL":{
       "description": "Masukan Username Channel anda Untuk Wajib Subscribenya [ Jangan Pake @ ]",
-      "value": "Lunatic0de"
+      "value": "Lunatic0de",
       "required": false
     },
     "GROUP":{
       "description": "Masukan Username dari Group anda Untuk Wajib Subscribenya [ Jangan Pake @ ]",
-      "value": "SharingUserbot"
+      "value": "SharingUserbot",
       "required": false
     },
     "ADMINS": {
