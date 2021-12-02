@@ -1,22 +1,23 @@
-# File-sharing-Bot
+# File-Sharing-Man
 
-Telegram Bot to store Posts and Documents and it can Access by Special Links.
-I Guess This Will Be Usefull For Many People.....😇. 
+Bot Telegram untuk menyimpan Posting atau File yang dapat Diakses melalui Link Khusus.
+Saya Kira Ini Akan Bermanfaat Bagi Banyak Orang.. 😇.
 
 ##
 
-**If you need any more modes in repo or If you find out any bugs, mention in [@SharingUserbot](https://www.telegram.dog/SharingUserbot)**
+**Jika Anda memerlukan tambahan module lagi dalam repo atau Jika Anda menemukan bug, silahkan report di group [@SharingUserbot](https://www.telegram.dog/SharingUserbot)**
 
 ### Features
-- Fully customisable.
-- Customisable welcome & Forcesub messages.
-- More than one Posts in One Link.
-- Can be deployed on heroku directly.
+- Sepenuhnya dapat dicustom.
+- Pesan sambutan & Forcesub yang dapat dicustom.
+- Lebih dari satu Posting dalam Satu Link (batch).
+- Dapat di-deploy di heroku secara langsung.
 
 ### Setup
 
-- Add the bot to Database Channel with all permission
-- Add bot to ForceSub channel as Admin with Invite Users via Link Permission if you enabled ForceSub 
+- Tambahkan bot ke Channel Database dengan semua izin admin
+- Tambahkan bot ke Channel ForceSub tambahkan bot sebagai ADMIN
+- Tambahkan bot ke Group ForceSub tambahkan bot sebagai ADMIN
 
 ##
 ### Installation
@@ -25,8 +26,8 @@ I Guess This Will Be Usefull For Many People.....😇.
 <a href="https://youtu.be/LCrkRTMkmzE">
   <img src="https://img.shields.io/badge/How%20to-Deploy-red?logo=youtube" width="147">
 </a><br>
-**Check This Tutorial Video on YouTube for any Help**<br>
-**Thanks to [Erich](https://t.me/ErichDaniken) and his [InFoTel](https://t.me/InFoTel_Group) for this Video**
+**Tonton Video Tutorial Ini di YouTube untuk Bantuan memasang di Heroku**<br>
+**Terima kasih kepada [Erich](https://t.me/ErichDaniken) dan [InFoTel](https://t.me/InFoTel_Group) untuk Video ini**
 
 #### Deploy in your VPS
 ````bash
@@ -40,33 +41,37 @@ python3 main.py
 ### Admin Commands
 
 ```
-/start - start the bot or get posts
+/start - mulai bot atau dapatkan postingan
 
-/batch - create link for more than one posts
+/batch - buat link untuk lebih dari satu posting
 
-/genlink - create link for one post
+/genlink - buat link untuk satu posting
 
-/users - view bot statistics
+/users - lihat statistik pengguna bot
 
-/broadcast - broadcast any messages to bot users
+/broadcast - menyiarkan/broadcast pesan apa pun ke pengguna bot
+
+/ping - untuk mengecek bot
 ```
 
 ### Variables
 
-* `API_HASH` Your API Hash from my.telegram.org
-* `API_ID` Your API ID from my.telegram.org
-* `TG_BOT_TOKEN` Your bot token from @BotFather
-* `OWNER_ID` Must enter Your Telegram Id
-* `CHANNEL_ID` Your Channel ID eg:- -100xxxxxxxx
-* `ADMINS` Optional: A space separated list of user_ids of Admins, they can only create links
-* `START_MESSAGE` Optional: start message of bot, use HTML and <a href='https://github.com/mrismanaziz/File-Sharing-Man/blob/main/README.md#start_message'>fillings</a>
-* `FORCE_SUB_MESSAGE`Optional:Force sub message of bot, use HTML and Fillings
-* `FORCE_SUB_CHANNEL` Optional: ForceSub Channel ID, leave 0 if you want disable force sub
+* `API_HASH` Dapatkan API HASH di web my.telegram.org.
+* `API_ID` Dapatkan APP ID di web my.telegram.org
+* `TG_BOT_TOKEN` Dapatkan dari t.me/BotFather
+* `OWNER` Masukan Username Telegram untuk Owner BOT
+* `OWNER_ID` Masukan User ID Telegram untuk Owner BOT
+* `CHANNEL_ID` Masukan ID Channel Untuk [Channel Database] contoh:- -100xxxxxxxx
+* `ADMINS` Masukan User ID untuk mendapatkan hak Admin BOT [Hanya dapat membuat link]
+* `START_MESSAGE` Opsional: Pesan /start memulai awalan ke bot, Gunakan <a href='https://github.com/mrismanaziz/File-Sharing-Man/blob/main/README.md#start_message'>format</a> parsemode HTML 
+* `FORCE_SUB_MESSAGE` Opsional: Pesan Paksa Subscribe bot, Gunakan Format parsemode HTML
+* `FORCE_SUB_CHANNEL` Masukan ID dari Channel Untuk Wajib Subscribenya
+* `FORCE_SUB_GROUP` Masukan ID dari Group Untuk Wajib Subscribenya
 
 ### Extra Variables
 
-* `CUSTOM_CAPTION` put your Custom caption text if you want Setup Custom Caption, you can use HTML and <a href='https://github.com/mrismanaziz/File-Sharing-Man/blob/main/README.md#custom_caption'>fillings</a> for formatting (only for documents)
-* `DISABLE_CHANNEL_BUTTON` Put True to Disable Channel Share Button, Default if False
+* `CUSTOM_CAPTION` letakkan teks teks Kustom Anda jika Anda ingin Mengatur Teks Kustom, Anda dapat menggunakan HTML dan <a href='https://github.com/mrismanaziz/File-Sharing-Man/blob/main/README.md#custom_caption'>fillings</a> untuk pemformatan (hanya untuk dokumen)
+* `DISABLE_CHANNEL_BUTTON` Masukan True untuk Nonaktifkan Tombol Berbagi Saluran, Default jika False
 
 ### Fillings
 #### START_MESSAGE | FORCE_SUB_MESSAGE
@@ -84,13 +89,14 @@ python3 main.py
 
 
 ## Support   
-Join Our [Telegram Group](https://www.telegram.dog/SharingUserbot) For Support/Assistance And Our [Channel](https://www.telegram.dog/Lunatic0de) For Updates.   
+Bergabunglah di [Group Telegram ](https://www.telegram.dog/SharingUserbot) Untuk Dukungan/Bantuan Dan Join [Channel](https://www.telegram.dog/Lunatic0de) untu info Update bot.   
    
-Report Bugs, Give Feature Requests There..   
+Laporkan Bug, Berikan Permintaan Fitur Di sana.. 
 
 ### Credits
 
 - Thanks To Dan For His Awsome [Libary](https://github.com/pyrogram/pyrogram)
+- Thanks To [CodeXBotz](https://github.com/CodeXBotz/File-Sharing-Bot)
 - Our Support Group Members
 
 ### Licence
@@ -104,5 +110,5 @@ published by the Free Software Foundation, either version 3 of the License, or
 
 ##
 
-   **Star this Repo if you Liked it ⭐⭐⭐**
+   **Berikan Bintang Repo ini jika Anda menyukainya ⭐⭐⭐⭐⭐**
 

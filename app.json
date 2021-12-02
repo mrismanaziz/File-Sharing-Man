@@ -21,6 +21,10 @@
       "description": "Masukan User ID Telegram untuk Owner BOT",
       "value": "844432220"
     },
+    "ADMINS": {
+      "description": "Masukan User ID untuk mendapatkan hak Admin BOT [Hanya dapat membuat link]",
+      "value": ""
+    },
     "APP_ID": {
       "description": "Dapatkan APP ID di web my.telegram.org",
       "value": ""
@@ -57,11 +61,6 @@
     "GROUP":{
       "description": "Masukan Username dari Group anda Untuk Wajib Subscribenya [ Jangan Pake @ ]",
       "value": "SharingUserbot",
-      "required": false
-    },
-    "ADMINS": {
-      "description": "Masukan User ID untuk mendapatkan hak Admin BOT [Hanya dapat membuat link]",
-      "value": "",
       "required": false
     }
   },
