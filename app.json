@@ -62,7 +62,6 @@
     "ADMINS": {
       "description": "Masukan User ID untuk mendapatkan hak Admin BOT [Hanya dapat membuat link]",
       "value": "",
-      "required": false
     }
   },
   "addons": [
