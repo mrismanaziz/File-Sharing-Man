@@ -23,11 +23,11 @@ Saya Kira Ini Akan Bermanfaat Bagi Banyak Orang.. 😇.
 ### Installation
 #### Deploy on Heroku
 [![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/mrismanaziz/File-Sharing-Man)</br>
-<a href="https://youtu.be/LCrkRTMkmzE">
+
+**Tonton Video Tutorial Ini di YouTube untuk Bantuan memasang di Heroku**<br>
+<a href="https://youtu.be/O2tieQgzYZg">
   <img src="https://img.shields.io/badge/How%20to-Deploy-red?logo=youtube" width="147">
 </a><br>
-**Tonton Video Tutorial Ini di YouTube untuk Bantuan memasang di Heroku**<br>
-**Terima kasih kepada [Erich](https://t.me/ErichDaniken) dan [InFoTel](https://t.me/InFoTel_Group) untuk Video ini**
 
 #### Deploy in your VPS
 ````bash
