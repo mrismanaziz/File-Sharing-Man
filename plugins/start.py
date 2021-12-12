@@ -113,13 +113,13 @@ async def start_command(client: Client, message: Message):
                 pass
     else:
         buttons = [
-            [InlineKeyboardButton("• ᴛᴇɴᴛᴀɴɢ sᴀʏᴀ •", callback_data="about")],
+            [InlineKeyboardButton("• Bot Hakkında •", callback_data="about")],
             [
-                InlineKeyboardButton("𝗖𝗛𝗔𝗡𝗡𝗘𝗟", url=client.invitelink),
-                InlineKeyboardButton("𝗚𝗥𝗢𝗨𝗣", url=client.invitelink2),
+                InlineKeyboardButton("Üstteki Kanalara", url=client.invitelink),
+                InlineKeyboardButton("Abone ol", url=client.invitelink2),
             ],
             [
-                InlineKeyboardButton("• ᴛᴜᴛᴜᴘ •", callback_data="close"),
+                InlineKeyboardButton("• Geri •", callback_data="close"),
             ],
         ]
         await message.reply_text(
@@ -144,15 +144,15 @@ async def start_command(client: Client, message: Message):
 async def not_joined(client: Client, message: Message):
     buttons = [
         [
-            InlineKeyboardButton("𝗖𝗛𝗔𝗡𝗡𝗘𝗟", url=client.invitelink),
-            InlineKeyboardButton("𝗚𝗥𝗢𝗨𝗣", url=client.invitelink2),
+            InlineKeyboardButton("Üstteki Kanalara", url=client.invitelink),
+            InlineKeyboardButton("Abone ol", url=client.invitelink2),
         ],
     ]
     try:
         buttons.append(
             [
                 InlineKeyboardButton(
-                    text="ᴄᴏʙᴀ ʟᴀɢɪ",
+                    text="𝗧𝗲𝗸𝗿𝗮𝗿 𝗗𝗲𝗻𝗲",
                     url=f"https://t.me/{client.username}?start={message.command[1]}",
                 )
             ]
@@ -182,7 +182,7 @@ async def get_users(client: Bot, message: Message):
         chat_id=message.chat.id, text="<code>Processing ...</code>"
     )
     users = await full_userbase()
-    await msg.edit(f"{len(users)} <b>Pengguna menggunakan bot ini</b>")
+    await msg.edit(f"{len(users)} <b>Aktif Kişi Var</b>")
 
 
 @Bot.on_message(filters.private & filters.command("broadcast") & filters.user(ADMINS))
@@ -216,12 +216,12 @@ async def send_text(client: Bot, message: Message):
                 unsuccessful += 1
             total += 1
 
-        status = f"""<b><u>Berhasil Broadcast</u>
-Jumlah Pengguna: <code>{total}</code>
-Berhasil: <code>{successful}</code>
-Gagal: <code>{unsuccessful}</code>
-Pengguna diblokir: <code>{blocked}</code>
-Akun Terhapus: <code>{deleted}</code></b>"""
+        status = f"""<b><u>İstatistik</u>
+Toplam: <code>{total}</code>
+Başarılı: <code>{successful}</code>
+Başarısız: <code>{unsuccessful}</code>
+Engelendi: <code>{blocked}</code>
+Silindi: <code>{deleted}</code></b>"""
 
         return await pls_wait.edit(status)
 
