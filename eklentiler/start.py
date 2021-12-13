@@ -113,13 +113,13 @@ async def start_command(client: Client, message: Message):
                 pass
     else:
         buttons = [
-            [InlineKeyboardButton("• ᴛᴇɴᴛᴀɴɢ sᴀʏᴀ •", callback_data="about")],
+            [InlineKeyboardButton("𝖡𝗈𝗍 𝖧𝖺𝗄𝗄ı𝗇𝖽𝖺 🔧", callback_data="about")],
             [
-                InlineKeyboardButton("𝗖𝗛𝗔𝗡𝗡𝗘𝗟", url=client.invitelink),
-                InlineKeyboardButton("𝗚𝗥𝗢𝗨𝗣", url=client.invitelink2),
+                InlineKeyboardButton("𝗞𝗮𝗻𝗮𝗹 𝟭", url=client.invitelink),
+                InlineKeyboardButton("𝗞𝗮𝗻𝗮𝗹 𝟮", url=client.invitelink2),
             ],
             [
-                InlineKeyboardButton("• ᴛᴜᴛᴜᴘ •", callback_data="close"),
+                InlineKeyboardButton("• ⬅️𝗚𝗲𝗿𝗶 •", callback_data="close"),
             ],
         ]
         await message.reply_text(
@@ -144,15 +144,15 @@ async def start_command(client: Client, message: Message):
 async def not_joined(client: Client, message: Message):
     buttons = [
         [
-            InlineKeyboardButton("𝗖𝗛𝗔𝗡𝗡𝗘𝗟", url=client.invitelink),
-            InlineKeyboardButton("𝗚𝗥𝗢𝗨𝗣", url=client.invitelink2),
+            InlineKeyboardButton("⬆️Ü𝗌𝗍𝗍𝖾𝗄𝗂 𝖪𝖺𝗇𝖺𝗅𝖺𝗋𝖺 ", url=client.invitelink),
+            InlineKeyboardButton("Ü𝗒𝖾 𝗈𝗅 ⬆️", url=client.invitelink2),
         ],
     ]
     try:
         buttons.append(
             [
                 InlineKeyboardButton(
-                    text="ᴄᴏʙᴀ ʟᴀɢɪ",
+                    text="𝗧𝗲𝗸𝗿𝗮𝗿 𝗗𝗲𝗻𝗲 🔁",
                     url=f"https://t.me/{client.username}?start={message.command[1]}",
                 )
             ]
