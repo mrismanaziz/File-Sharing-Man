@@ -119,7 +119,7 @@ async def start_command(client: Client, message: Message):
                 InlineKeyboardButton("Her zaman yanınızda", url=client.invitelink2),
             ],
             [
-                InlineKeyboardButton("• ⬅️Geri •", callback_data="close"),
+                InlineKeyboardButton("•⬅️Geri•", callback_data="close"),
             ],
         ]
         await message.reply_text(
