@@ -1,6 +1,7 @@
 # (©)Codexbotz
-# Recode by @mrismanaziz
-# t.me/SharingUserbot & t.me/Lunatic0de
+# Recode by @MasParrel
+# Kalo clone yang ini jangan di apus ye
+# Kalo ini di apus yaudah gagal dah
 
 import asyncio
 
