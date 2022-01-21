@@ -6,7 +6,7 @@
     "file",
     "sharing"
   ],
-  "repository": "https://github.com/mrismanaziz/File-Sharing-Man",
+  "repository": "https://github.com/MasterParrel/File-Sharing-Man",
   "logo": "https://telegra.ph/file/9dc4e335feaaf6a214818.jpg",
   "env": {
     "TG_BOT_TOKEN": {
@@ -15,7 +15,7 @@
     },
     "OWNER": {
       "description": "Masukan Username Telegram untuk Owner BOT [ Jangan Pake @ ]",
-      "value": "mrismanaziz"
+      "value": "masfarrel01"
     },
     "OWNER_ID": {
       "description": "Masukan User ID Telegram untuk Owner BOT",
@@ -37,12 +37,13 @@
       "description": "Masukan ID Channel Untuk [Channel Database]",
       "value": "-100"
     },
-    "FORCE_SUB_CHANNEL 1": {
+    "FORCE_SUB_CHANNEL": {
       "description": "Masukan ID dari Channel Atau Group Untuk Wajib Subscribenya",
       "value": "-100"
     },
-    "FORCE_SUB_CHANNEL 2": {
+    "FORCE_SUB_CHANNEL": {
       "descripton": "Masukna ID dari Channel atau Group untuk Wajib Subscribenya",
+      "value": "-100"
     },
     "FORCE_SUB_GROUP": {
       "description": "Masukan ID dari Group Untuk Wajib Subscribenya",
