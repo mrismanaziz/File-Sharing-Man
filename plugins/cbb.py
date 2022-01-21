@@ -1,6 +1,6 @@
 # (©)Codexbotz
-# Recode by @mrismanaziz
-# t.me/SharingUserbot & t.me/Lunatic0de
+# Recode by @MasterParrel
+# Jangan di ubah yang ini oke
 
 from pyrogram.types import CallbackQuery, InlineKeyboardButton, InlineKeyboardMarkup
 
