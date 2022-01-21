@@ -6,7 +6,7 @@
     "file",
     "sharing"
   ],
-  "repository": "https://github.com/MasterParrel/File-Sharing-Man",
+  "repository": "https://github.com/MasterParrel/File-Sharing-Link",
   "logo": "https://telegra.ph/file/9dc4e335feaaf6a214818.jpg",
   "env": {
     "TG_BOT_TOKEN": {
