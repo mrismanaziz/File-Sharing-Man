@@ -74,7 +74,7 @@ async def start_command(client: Client, message: Message):
                 ids = [int(int(argument[1]) / abs(client.db_channel.id))]
             except BaseException:
                 return
-        temp_msg = await message.reply("<code>Tunggu Sebentar...</code>")
+        temp_msg = await message.reply("<code>Tunggu Bentar cok...</code>")
         try:
             messages = await get_messages(client, ids)
         except BaseException:
@@ -115,9 +115,12 @@ async def start_command(client: Client, message: Message):
         buttons = [
             [InlineKeyboardButton("• ᴛᴇɴᴛᴀɴɢ sᴀʏᴀ •", callback_data="about")],
             [
-                InlineKeyboardButton("𝗖𝗛𝗔𝗡𝗡𝗘𝗟", url=client.invitrlink),
-                InlineKeyboardButton("𝗖𝗛𝗔𝗡𝗡𝗘𝗟", url=client.invitelink2),
-                InlineKeyboardButton("𝗚𝗥𝗢𝗨𝗣", url=client.invitelink3),
+                
+                InlineKeyboardButton("💢𝗖𝗛𝗔𝗡𝗡𝗘𝗟💢", url=client.invitelink),
+                InlineKeyboardButton("💢𝗚𝗥𝗢𝗨𝗣💢", url=client.invitelink2),
+            ],
+            [
+                InlineKeyboardButton("💢𝗖𝗛𝗔𝗡𝗡𝗘𝗟💢", url=client.invitelink2),
             ],
             [
                 InlineKeyboardButton("• ᴛᴜᴛᴜᴘ •", callback_data="close"),
@@ -145,10 +148,14 @@ async def start_command(client: Client, message: Message):
 async def not_joined(client: Client, message: Message):
     buttons = [
         [
-            InlineKeyboardButton("𝗖𝗛𝗔𝗡𝗡𝗘𝗟", url=client.invitelink),
-            InlineKeyboardButton("𝗖𝗛𝗔𝗡𝗡𝗘𝗟", url=client.invitelink2),
-            InlineKeyboardButton("𝗚𝗥𝗢𝗨𝗣", url=client.invitelink3),
+            
+            InlineKeyboardButton("💢𝗖𝗛𝗔𝗡𝗡𝗘𝗟💢", url=client.invitelink),
+            InlineKeyboardButton("💢𝗚𝗥𝗢𝗨𝗣💢", url=client.invitelink2),
+        [
+            InlineKeyboardButton("💢𝗖𝗛𝗔𝗡𝗡𝗘𝗟💢", url=client.invitelink2),
         ],
+         
+         
     ]
     try:
         buttons.append(
