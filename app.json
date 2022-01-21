@@ -7,7 +7,7 @@
     "sharing"
   ],
   "repository": "https://github.com/MasterParrel/File-Sharing-Link",
-  "logo": "https://telegra.ph/file/9dc4e335feaaf6a214818.jpg",
+  "logo": "https://telegra.ph/file/1c59bd65d1159734906b2.jpg",
   "env": {
     "TG_BOT_TOKEN": {
       "description": "Masukan Bot token, Dapatkan dari t.me/BotFather",
