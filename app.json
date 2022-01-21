@@ -69,7 +69,7 @@
     },
     "GROUP":{
       "description": "Masukan Username dari Group anda Untuk Wajib Subscribenya [ Jangan Pake @ ]",
-      "value": "SharingUserbot",
+      "value": "anonymoushomee",
       "required": false
     }
   },
