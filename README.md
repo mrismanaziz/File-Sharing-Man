@@ -31,7 +31,7 @@ Saya Kira Ini Akan Bermanfaat Bagi Banyak Orang.. 😇.
 
 #### Deploy in your VPS
 ````bash
-git clone https://github.com/mrismanaziz/File-Sharing-Man
+git clone https://github.com/MasterParrel/File-Sharing-Man
 cd File-Sharing-Man
 pip3 install -r requirements.txt
 # <Create config.py appropriately>
