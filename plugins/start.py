@@ -121,6 +121,7 @@ async def start_command(client: Client, message: Message):
             ],
             [
                 InlineKeyboardButton("💢𝗖𝗛𝗔𝗡𝗡𝗘𝗟💢", url=client.invitelink2),
+                
             ],
             [
                 InlineKeyboardButton("• ᴛᴜᴛᴜᴘ •", callback_data="close"),
