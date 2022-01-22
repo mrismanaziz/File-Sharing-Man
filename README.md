@@ -1,4 +1,4 @@
-# File-Sharing-Man
+# File-Sharing-Link
 
 Bot Telegram untuk menyimpan Posting atau File yang dapat Diakses melalui Link Khusus.
 Saya Kira Ini Akan Bermanfaat Bagi Banyak Orang.. 😇.
@@ -32,8 +32,8 @@ src="https://img.shields.io/badge/Deploy%20To%20Heroku-blue?style=for-the-badge&
 
 #### Deploy in your VPS
 ````bash
-git clone https://github.com/MasterParrel/File-Sharing-Man
-cd File-Sharing-Man
+git clone https://github.com/MasterParrel/File-Sharing-Link
+cd File-Sharing-Link
 pip3 install -r requirements.txt
 # <Create config.py appropriately>
 python3 main.py
