@@ -15,7 +15,7 @@ from config import ADMINS, FORCE_SUB_CHANNEL, FORCE_SUB_GROUP
 
 async def is_subscribed(filter, client, update):
     if not FORCE_SUB_CHANNEL:
-        retrun True
+        return True
     if not FORCE_SUB_CHANNEL:
         return True
     if not FORCE_SUB_GROUP:
