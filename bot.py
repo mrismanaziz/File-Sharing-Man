@@ -12,6 +12,7 @@ from config import (
     APP_ID,
     CHANNEL_ID,
     FORCE_SUB_CHANNEL,
+    FORCE_SUB_CHANNEL,
     FORCE_SUB_GROUP,
     LOGGER,
     OWNER,
@@ -36,7 +37,23 @@ class Bot(Client):
         await super().start()
         usr_bot_me = await self.get_me()
 
-        if FORCE_SUB_CHANNEL:
+        if FORCE_SUB_CHANNEL1:
+            try:
+                link = await self.export_chat_invite_link(FORCE_SUB_CHANNEL)
+                self.invitelink = link
+            except Exception as a:
+                self.LOGGER(__name__).warning(a)
+                self.LOGGER(__name__).warning(
+                    "Bot tidak dapat Mengambil link Undangan dari FORCE_SUB_CHANNEL!"
+                )
+                self.LOGGER(__name__).warning(
+                    f"Silakan periksa kembali var FORCE_SUB_CHANNEL dan Pastikan Bot anda Admin di Channel dengan izin link invite Pengguna melalui link undangan, Subs Channel Saat Ini: {FORCE_SUB_CHANNEL}"
+                )
+                self.LOGGER(__name__).info(
+                    "\nBot Berhenti. Gabung Group https://t.me/SharingUserbot untuk Bantuan"
+                )
+                sys.exit()
+        if FORCE_SUB_CHANNEL2:
             try:
                 link = await self.export_chat_invite_link(FORCE_SUB_CHANNEL)
                 self.invitelink = link
