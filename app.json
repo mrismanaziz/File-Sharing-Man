@@ -37,7 +37,7 @@
       "description": "Masukan ID Channel Untuk [Channel Database]",
       "value": "-100"
     },
-    "FORCE_SUB_CHANNEL 1": {
+    "FORCE_SUB_CHANNEL": {
       "description": "Masukan ID dari Channel Atau Group Untuk Wajib Subscribenya",
       "value": "-100"
     },
@@ -57,13 +57,13 @@
       "description": "Pesan Paksa Subscribe bot, Gunakan Format parsemode HTML",
       "value": "<b>Hello {first}\n\nAnda harus bergabung di Channel/Grup saya untuk menggunakan saya\n\nSilakan Join Ke Channel Terlebih Dahulu</b>"
     },
-    "CHANNEL 1":{
-      "description": "Masukan Username Channel anda Untuk Wajib Subscribenya [ Jangan Pake @ ]",
+    "CHANNEL":{
+      "description": "Masukan Username Channel 1 anda Untuk Wajib Subscribenya [ Jangan Pake @ ]",
       "value": "Lunatic0de",
       "required": false
     },
-    "CHANNEL 2":{
-      "description": "Masukan Username Channel anda untuk Wajib Subscribenya [ Jangan pake @ ]",
+    "CHANNEL":{
+      "description": "Masukan Username Channel 2 anda untuk Wajib Subscribenya [ Jangan pake @ ]",
       "value": "anonymoushomee",
       "required":false
     },
