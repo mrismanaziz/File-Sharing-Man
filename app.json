@@ -42,7 +42,7 @@
       "value": "-100"
     },
     "FORCE_SUB_CHANNEL 2": {
-      "descripton": "Masukna ID dari Channel atau Group untuk Wajib Subscribenya",
+      "descripton": "Masukan ID dari Channel atau Group untuk Wajib Subscribenya",
       "value": "-100"
     },
     "FORCE_SUB_GROUP": {
