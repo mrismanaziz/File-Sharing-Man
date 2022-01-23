@@ -57,12 +57,12 @@
       "description": "Pesan Paksa Subscribe bot, Gunakan Format parsemode HTML",
       "value": "<b>Hello {first}\n\nAnda harus bergabung di Channel/Grup saya untuk menggunakan saya\n\nSilakan Join Ke Channel Terlebih Dahulu</b>"
     },
-    "CHANNEL":{
+    "CHANNEL1":{
       "description": "Masukan Username Channel 1 anda Untuk Wajib Subscribenya [ Jangan Pake @ ]",
       "value": "Lunatic0de",
       "required": false
     },
-    "CHANNEL":{
+    "CHANNEL2":{
       "description": "Masukan Username Channel 2 anda untuk Wajib Subscribenya [ Jangan pake @ ]",
       "value": "anonymoushomee",
       "required":false
