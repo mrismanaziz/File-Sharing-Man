@@ -6,7 +6,7 @@
     "file",
     "sharing"
   ],
-  "repository": "https://github.com/MasterParrel/File-Sharing-Link",
+  "repository": "https://github.com/MasterParrel/gataukak",
   "logo": "https://telegra.ph/file/1c59bd65d1159734906b2.jpg",
   "env": {
     "TG_BOT_TOKEN": {
