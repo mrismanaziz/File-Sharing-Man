@@ -26,7 +26,7 @@ async def is_subscribed(filter, client, update):
         return True
     try:
         member = await client.get_chat_member(
-            chat_id=FORCE_SUB_CHANNEL2, user_id=user_id
+            chat_id=FORCE_SUB_CHANNEL1, user_id=user_id
         )
 
 
