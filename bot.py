@@ -11,7 +11,7 @@ from config import (
     API_HASH,
     APP_ID,
     CHANNEL_ID,
-    FORCE_SUB_CHANNEL,
+    FORCE_SUB_CHANNEL1,
     FORCE_SUB_CHANNEL2,
     FORCE_SUB_GROUP,
     LOGGER,
@@ -37,7 +37,7 @@ class Bot(Client):
         await super().start()
         usr_bot_me = await self.get_me()
 
-        if FORCE_SUB_CHANNEL:
+        if FORCE_SUB_CHANNEL1:
             try:
                 link = await self.export_chat_invite_link(FORCE_SUB_CHANNEL)
                 self.invitelink = link
