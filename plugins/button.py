@@ -63,6 +63,8 @@ def fsub_button(client, message):
                     )
                 ]
             )
+        except IndexError:
+            pass
         return buttons
     if FORCE_SUB_CHANNEL and not FORCE_SUB_GROUP:
         buttons = [
@@ -79,6 +81,8 @@ def fsub_button(client, message):
                     )
                 ]
             )
+        except IndexError:
+            pass
         return buttons
     if FORCE_SUB_CHANNEL and FORCE_SUB_GROUP:
         buttons = [
@@ -96,4 +100,6 @@ def fsub_button(client, message):
                     )
                 ]
             )
+        except IndexError:
+            pass
         return buttons
