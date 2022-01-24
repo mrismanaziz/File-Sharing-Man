@@ -11,6 +11,7 @@ from pyrogram.errors import FloodWait, InputUserDeactivated, UserIsBlocked
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup, Message
 
 from bot import Bot
+from button import start_button
 from config import ADMINS, CUSTOM_CAPTION, DISABLE_CHANNEL_BUTTON, FORCE_MSG, START_MSG
 from database.sql import add_user, full_userbase, query_msg
 from helper_func import decode, get_messages, subscribed
@@ -112,16 +113,7 @@ async def start_command(client: Client, message: Message):
             except BaseException:
                 pass
     else:
-        buttons = [
-            [InlineKeyboardButton("• ᴛᴇɴᴛᴀɴɢ sᴀʏᴀ •", callback_data="about")],
-            [
-                InlineKeyboardButton("𝗖𝗛𝗔𝗡𝗡𝗘𝗟", url=client.invitelink),
-                InlineKeyboardButton("𝗚𝗥𝗢𝗨𝗣", url=client.invitelink2),
-            ],
-            [
-                InlineKeyboardButton("• ᴛᴜᴛᴜᴘ •", callback_data="close"),
-            ],
-        ]
+        out = start_button()
         await message.reply_text(
             text=START_MSG.format(
                 first=message.from_user.first_name,
@@ -132,7 +124,7 @@ async def start_command(client: Client, message: Message):
                 mention=message.from_user.mention,
                 id=message.from_user.id,
             ),
-            reply_markup=InlineKeyboardMarkup(buttons),
+            reply_markup=InlineKeyboardMarkup(out[1]),
             disable_web_page_preview=True,
             quote=True,
         )
