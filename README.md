@@ -34,8 +34,10 @@ Saya Kira Ini Akan Bermanfaat Bagi Banyak Orang.. 😇.
 git clone https://github.com/mrismanaziz/File-Sharing-Man
 cd File-Sharing-Man
 pip3 install -r requirements.txt
-# <Create config.py appropriately>
-python3 main.py
+cp sample_config.env config.env
+# edit config.env Anda dan isi VARS menggunakan nano config.env CTRL + S untuk menyimpan VARS Anda, 
+# gunakan CTRL + X untuk keluar dan kembali ke direktori File-Sharing-Man
+bash start
 ````
 
 ### Admin Commands
