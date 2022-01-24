@@ -1,8 +1,9 @@
+from pyrogram import Client
 from pyrogram.types import (CallbackQuery, InlineKeyboardButton, InlineKeyboardMarkup, InputMediaPhoto, Message)
 from config import ADMINS, FORCE_SUB_CHANNEL, FORCE_SUB_GROUP
 
 
-def start_button():
+def start_button(client: Client, message: Message):
     if not FORCE_SUB_CHANNEL and not FORCE_SUB_GROUP:
         buttons = [
             [
