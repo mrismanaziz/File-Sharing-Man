@@ -134,19 +134,7 @@ async def start_command(client: Client, message: Message):
 
 @Bot.on_message(filters.command("start") & filters.private)
 async def not_joined(client: Client, message: Message):
-    buttons = fsub_button(client)
-    try:
-        buttons.append(
-            [
-                InlineKeyboardButton(
-                    text="ᴄᴏʙᴀ ʟᴀɢɪ",
-                    url=f"https://t.me/{client.username}?start={message.command[1]}",
-                )
-            ]
-        )
-    except IndexError:
-        pass
-
+    buttons = fsub_button(client, message)
     await message.reply(
         text=FORCE_MSG.format(
             first=message.from_user.first_name,
