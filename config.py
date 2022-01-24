@@ -4,21 +4,10 @@
 
 import logging
 import os
-import sys
 from dotenv import load_dotenv
 from logging.handlers import RotatingFileHandler
 
 load_dotenv("config.env")
-
-CONFIG_CHECK = os.environ.get(
-    "___________PLOX_______REMOVE_____THIS_____LINE__________", None
-)
-
-if CONFIG_CHECK:
-    LOGGER.info(
-        "Harap hapus baris yang disebutkan dalam tagar pertama dari file config.env"
-    )
-    sys.exit(1)
 
 # Bot token dari @Botfather
 TG_BOT_TOKEN = os.environ.get("TG_BOT_TOKEN", "")
