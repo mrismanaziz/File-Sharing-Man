@@ -48,11 +48,6 @@ def start_button(client):
 
 
 def fsub_button(client, message):
-    if not FORCE_SUB_CHANNEL and not FORCE_SUB_GROUP:
-        buttons = [
-            [InlineKeyboardButton(text="• ᴛᴜᴛᴜᴘ •", callback_data="close")],
-        ]
-        return buttons
     if not FORCE_SUB_CHANNEL and FORCE_SUB_GROUP:
         buttons = [
             [
