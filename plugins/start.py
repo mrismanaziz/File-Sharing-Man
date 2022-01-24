@@ -11,7 +11,7 @@ from pyrogram.errors import FloodWait, InputUserDeactivated, UserIsBlocked
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup, Message
 
 from bot import Bot
-from .button import start_button
+from .button import fsub_button, start_button
 from config import ADMINS, CUSTOM_CAPTION, DISABLE_CHANNEL_BUTTON, FORCE_MSG, START_MSG
 from database.sql import add_user, full_userbase, query_msg
 from helper_func import decode, get_messages, subscribed
@@ -134,12 +134,7 @@ async def start_command(client: Client, message: Message):
 
 @Bot.on_message(filters.command("start") & filters.private)
 async def not_joined(client: Client, message: Message):
-    buttons = [
-        [
-            InlineKeyboardButton("𝗖𝗛𝗔𝗡𝗡𝗘𝗟", url=client.invitelink),
-            InlineKeyboardButton("𝗚𝗥𝗢𝗨𝗣", url=client.invitelink2),
-        ],
-    ]
+    buttons = fsub_button(client)
     try:
         buttons.append(
             [
