@@ -10,11 +10,9 @@ def start_button(client):
                 InlineKeyboardButton(
                     text="• ᴛᴇɴᴛᴀɴɢ sᴀʏᴀ •", callback_data="about"
                 ),
-            ],
-            [
                 InlineKeyboardButton(
                     text="• ᴛᴜᴛᴜᴘ •", callback_data="close"
-                )
+                ),
             ],
         ]
         return buttons
@@ -22,18 +20,16 @@ def start_button(client):
         buttons = [
             [
                 InlineKeyboardButton(
-                    text="• ᴛᴇɴᴛᴀɴɢ sᴀʏᴀ •", callback_data="about"
-                ),
-            ],
-            [
-                InlineKeyboardButton(
                     text="𝗚𝗥𝗢𝗨𝗣", url=client.invitelink2
                 ),
             ],
             [
                 InlineKeyboardButton(
+                    text="• ᴛᴇɴᴛᴀɴɢ sᴀʏᴀ •", callback_data="about"
+                ),
+                InlineKeyboardButton(
                     text="• ᴛᴜᴛᴜᴘ •", callback_data="close"
-                )
+                ),
             ],
         ]
         return buttons
@@ -41,18 +37,16 @@ def start_button(client):
         buttons = [
             [
                 InlineKeyboardButton(
-                    text="• ᴛᴇɴᴛᴀɴɢ sᴀʏᴀ •", callback_data="about"
-                ),
-            ],
-            [
-                InlineKeyboardButton(
                     text="𝗖𝗛𝗔𝗡𝗡𝗘𝗟", url=client.invitelink
                 ),
             ],
             [
                 InlineKeyboardButton(
+                    text="• ᴛᴇɴᴛᴀɴɢ sᴀʏᴀ •", callback_data="about"
+                ),
+                InlineKeyboardButton(
                     text="• ᴛᴜᴛᴜᴘ •", callback_data="close"
-                )
+                ),
             ],
         ]
         return buttons
