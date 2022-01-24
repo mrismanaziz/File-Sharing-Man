@@ -132,7 +132,7 @@ async def start_command(client: Client, message: Message):
     return
 
 
-@Bot.on_message(filters.command("start") & filters.private)
+@Bot.on_message(filters.command("start") & filters.private & subscribed)
 async def not_joined(client: Client, message: Message):
     buttons = fsub_button(client, message)
     await message.reply(
