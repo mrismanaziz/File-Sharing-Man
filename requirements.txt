@@ -1,6 +1,7 @@
-pyrogram
-TgCrypto
-Pyromod
-sqlalchemy~=1.3.23
-psycopg2-binary
 feedparser
+psycopg2-binary
+pyrogram
+python-dotenv
+Pyromod
+sqlalchemy==1.3.23
+TgCrypto
