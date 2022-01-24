@@ -80,7 +80,7 @@ def start_button(client):
         return buttons
 
 
-def fsub_button(client):
+def fsub_button(client, message):
     if not FORCE_SUB_CHANNEL and not FORCE_SUB_GROUP:
         buttons = [
             [
