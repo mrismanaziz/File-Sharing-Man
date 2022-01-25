@@ -23,7 +23,7 @@
     },
     "ADMINS": {
       "description": "Masukan User ID untuk mendapatkan hak Admin BOT [Hanya dapat membuat link]",
-      "value": ""
+      "value": "0"
     },
     "APP_ID": {
       "description": "Dapatkan APP ID di web my.telegram.org",
@@ -38,12 +38,12 @@
       "value": "-100"
     },
     "FORCE_SUB_CHANNEL": {
-      "description": "Masukan ID dari Channel Atau Group Untuk Wajib Subscribenya",
-      "value": "-100"
+      "description": "Masukan ID dari Channel Atau Group Untuk Wajib Subscribenya, Bila tidak ingin dipakai Fsubnya, isi dengan 0",
+      "value": "0"
     },
     "FORCE_SUB_GROUP": {
-      "description": "Masukan ID dari Group Untuk Wajib Subscribenya",
-      "value": "-100"
+      "description": "Masukan ID dari Group Untuk Wajib Subscribenya, Bila tidak ingin dipakai Fsubnya, isi dengan 0",
+      "value": "0"
     },
     "START_MESSAGE": {
       "description": "Pesan /start memulai awalan ke bot, Gunakan format parsemode HTML",
