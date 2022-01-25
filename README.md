@@ -9,9 +9,10 @@ Saya Kira Ini Akan Bermanfaat Bagi Banyak Orang.. 😇.
 
 ### Features
 - Sepenuhnya dapat dicustom.
+- Dapat di-deploy di heroku & vps.
 - Pesan sambutan & Forcesub yang dapat dicustom.
 - Lebih dari satu Posting dalam Satu Link (batch).
-- Dapat di-deploy di heroku secara langsung.
+- Fleksibel FSUB Button bisa 1 button atau 2 button menyesuaikan dengan var yang di isi.
 
 ### Setup
 
