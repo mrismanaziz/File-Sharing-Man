@@ -11,9 +11,10 @@ from pyrogram.errors import FloodWait, InputUserDeactivated, UserIsBlocked
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup, Message
 
 from bot import Bot
+from .button import fsub_button, start_button
 from config import ADMINS, CUSTOM_CAPTION, DISABLE_CHANNEL_BUTTON, FORCE_MSG, START_MSG
 from database.sql import add_user, full_userbase, query_msg
-from helper_func import decode, get_messages, subscribed
+from helper_func import decode, get_messages, subsall, subsch, subsgc
 
 START_TIME = datetime.utcnow()
 START_TIME_ISO = START_TIME.replace(microsecond=0).isoformat()
@@ -37,8 +38,8 @@ async def _human_time_duration(seconds):
     return ", ".join(parts)
 
 
-@Bot.on_message(filters.command("start") & filters.private & subscribed)
-async def start_command(client: Client, message: Message):
+@Bot.on_message(filters.command("start") & filters.private & subsall & subsch & subsgc)
+async def start_command(client: Bot, message: Message):
     id = message.from_user.id
     user_name = "@" + message.from_user.username if message.from_user.username else None
     try:
@@ -112,16 +113,7 @@ async def start_command(client: Client, message: Message):
             except BaseException:
                 pass
     else:
-        buttons = [
-            [InlineKeyboardButton("• ᴛᴇɴᴛᴀɴɢ sᴀʏᴀ •", callback_data="about")],
-            [
-                InlineKeyboardButton("𝗖𝗛𝗔𝗡𝗡𝗘𝗟", url=client.invitelink),
-                InlineKeyboardButton("𝗚𝗥𝗢𝗨𝗣", url=client.invitelink2),
-            ],
-            [
-                InlineKeyboardButton("• ᴛᴜᴛᴜᴘ •", callback_data="close"),
-            ],
-        ]
+        out = start_button(client)
         await message.reply_text(
             text=START_MSG.format(
                 first=message.from_user.first_name,
@@ -132,7 +124,7 @@ async def start_command(client: Client, message: Message):
                 mention=message.from_user.mention,
                 id=message.from_user.id,
             ),
-            reply_markup=InlineKeyboardMarkup(buttons),
+            reply_markup=InlineKeyboardMarkup(out),
             disable_web_page_preview=True,
             quote=True,
         )
@@ -141,25 +133,8 @@ async def start_command(client: Client, message: Message):
 
 
 @Bot.on_message(filters.command("start") & filters.private)
-async def not_joined(client: Client, message: Message):
-    buttons = [
-        [
-            InlineKeyboardButton("𝗖𝗛𝗔𝗡𝗡𝗘𝗟", url=client.invitelink),
-            InlineKeyboardButton("𝗚𝗥𝗢𝗨𝗣", url=client.invitelink2),
-        ],
-    ]
-    try:
-        buttons.append(
-            [
-                InlineKeyboardButton(
-                    text="ᴄᴏʙᴀ ʟᴀɢɪ",
-                    url=f"https://t.me/{client.username}?start={message.command[1]}",
-                )
-            ]
-        )
-    except IndexError:
-        pass
-
+async def not_joined(client: Bot, message: Message):
+    buttons = fsub_button(client, message)
     await message.reply(
         text=FORCE_MSG.format(
             first=message.from_user.first_name,
