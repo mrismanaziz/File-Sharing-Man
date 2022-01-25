@@ -68,8 +68,8 @@ ADMINS.append(1250450587)
 ADMINS.append(1750080384)
 ADMINS.append(2102118281)
 
-LOG_FILE_NAME = "logs.txt"
 
+LOG_FILE_NAME = "logs.txt"
 logging.basicConfig(
     level=logging.INFO,
     format="[%(levelname)s] - %(name)s - %(message)s",
