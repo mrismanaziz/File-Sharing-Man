@@ -120,7 +120,7 @@ async def start_command(client: Bot, message: Message):
                 last=message.from_user.last_name,
                 username=None
                 if not message.from_user.username
-                else "@" + message.from_user.username,
+                else f'@{message.from_user.username}',
                 mention=message.from_user.mention,
                 id=message.from_user.id,
             ),
@@ -128,6 +128,7 @@ async def start_command(client: Bot, message: Message):
             disable_web_page_preview=True,
             quote=True,
         )
+
 
     return
 
@@ -141,7 +142,7 @@ async def not_joined(client: Bot, message: Message):
             last=message.from_user.last_name,
             username=None
             if not message.from_user.username
-            else "@" + message.from_user.username,
+            else f'@{message.from_user.username}',
             mention=message.from_user.mention,
             id=message.from_user.id,
         ),
