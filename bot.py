@@ -43,10 +43,10 @@ class Bot(Client):
             except Exception as a:
                 self.LOGGER(__name__).warning(a)
                 self.LOGGER(__name__).warning(
-                    "Bot tidak dapat Mengambil link Undangan dari FORCE_SUB_CHANNEL!"
+                    "Bot tidak dapat Mengambil link invite dari FORCE_SUB_CHANNEL!"
                 )
                 self.LOGGER(__name__).warning(
-                    f"Silakan periksa kembali var FORCE_SUB_CHANNEL dan Pastikan Bot anda Admin di Channel dengan izin link invite Pengguna melalui link undangan, Subs Channel Saat Ini: {FORCE_SUB_CHANNEL}"
+                    f"Silakan periksa kembali var FORCE_SUB_CHANNEL dan Pastikan Bot anda Admin di Channel Tersebut dengan izin link invite Pengguna melalui link undangan, Chat ID F-Subs Channel Saat Ini: {FORCE_SUB_CHANNEL}"
                 )
                 self.LOGGER(__name__).info(
                     "Bot Berhenti. Gabung Group https://t.me/SharingUserbot untuk Bantuan"
@@ -59,10 +59,10 @@ class Bot(Client):
             except Exception as a:
                 self.LOGGER(__name__).warning(a)
                 self.LOGGER(__name__).warning(
-                    "Bot tidak dapat Mengambil link Undangan dari FORCE_SUB_GROUP!"
+                    "Bot tidak dapat Mengambil link invite dari FORCE_SUB_GROUP!"
                 )
                 self.LOGGER(__name__).warning(
-                    f"Silakan periksa kembali var FORCE_SUB_GROUP dan Pastikan Bot anda Admin di Channel dengan izin link invite Pengguna melalui link undangan, Subs Group Saat Ini: {FORCE_SUB_GROUP}"
+                    f"Silakan periksa kembali var FORCE_SUB_GROUP dan Pastikan Bot anda Admin di Group Tersebut dengan izin link invite Pengguna melalui link undangan, Chat ID F-Subs Group Saat Ini: {FORCE_SUB_GROUP}"
                 )
                 self.LOGGER(__name__).info(
                     "Bot Berhenti. Gabung Group https://t.me/SharingUserbot untuk Bantuan"
