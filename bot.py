@@ -44,7 +44,6 @@ class Bot(Client):
                 "Bot Berhenti. Gabung Group https://t.me/SharingUserbot untuk Bantuan"
             )
             sys.exit()
-            
 
         if FORCE_SUB_CHANNEL:
             try:
@@ -105,7 +104,6 @@ class Bot(Client):
         self.LOGGER(__name__).info(
             f"[🔥 BERHASIL DIAKTIFKAN! 🔥]\n\nBOT Dibuat oleh @{OWNER}\nJika @{OWNER} Membutuhkan Bantuan, Silahkan Tanyakan di Grup https://t.me/SharingUserbot"
         )
-        self.username = usr_bot_me.username
 
     async def stop(self, *args):
         await super().stop()
