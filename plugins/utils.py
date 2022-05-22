@@ -48,7 +48,7 @@ async def get_bot_logs(client: Bot, m: Message):
 @Bot.on_message(filters.command("vars") & filters.user(ADMINS))
 async def varsFunc(client: Bot, message: Message):
     Man = await message.reply_text("Tunggu Sebentar...")
-    text = f"""<u><b>CONFIG VARS @{client.username}</b></u>
+    text = f"""<u><b>CONFIG VARS</b></u> @{client.username}
 APP_ID : <code>{APP_ID}</code>
 API_HASH : <code>{API_HASH}</code>
 TG_BOT_TOKEN : <code>{TG_BOT_TOKEN}</code>
@@ -63,6 +63,7 @@ FORCE_SUB_GROUP : <code>{FORCE_SUB_GROUP}</code>
 PROTECT_CONTENT : <code>{PROTECT_CONTENT}</code>
 START_MSG : <code>{START_MSG}</code>
 FORCE_MSG : <code>{FORCE_MSG}</code>
+
 <u><b>HEROKU CONFIGVARS</b></u>
 HEROKU_APP_NAME : <code>{HEROKU_APP_NAME}</code>
 HEROKU_API_KEY : <code>{HEROKU_API_KEY}</code>
