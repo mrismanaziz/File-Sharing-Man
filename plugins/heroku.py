@@ -20,6 +20,7 @@ from datetime import datetime
 
 import aiohttp
 import dotenv
+import heroku3
 import urllib3
 from bot import Bot
 from config import ADMINS, HEROKU_API_KEY, HEROKU_APP_NAME, UPSTREAM_BRANCH
