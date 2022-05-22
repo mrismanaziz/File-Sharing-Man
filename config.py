@@ -22,9 +22,6 @@ API_HASH = os.environ.get("API_HASH", "")
 # ID Channel Database
 CHANNEL_ID = int(os.environ.get("CHANNEL_ID", ""))
 
-# OWNER ID
-OWNER_ID = int(os.environ.get("OWNER_ID", ""))
-
 # NAMA OWNER
 OWNER = os.environ.get("OWNER", "mrismanaziz")
 
@@ -69,10 +66,9 @@ CUSTOM_CAPTION = os.environ.get("CUSTOM_CAPTION", None)
 # Setel True jika Anda ingin Menonaktifkan tombol Bagikan Kiriman Saluran Anda
 DISABLE_CHANNEL_BUTTON = strtobool(os.environ.get("DISABLE_CHANNEL_BUTTON", "False"))
 
-ADMINS.append(OWNER_ID)
 # Jangan Dihapus nanti ERROR, HAPUS ID Dibawah ini = TERIMA KONSEKUENSI
 # Spoiler KONSEKUENSI-nya Paling CH nya tiba tiba ilang & owner nya gua gban 🤪
-ADMINS.extend((OWNER_ID, 844432220, 1250450587, 1750080384, 2102118281))
+ADMINS.extend((844432220, 1250450587, 1750080384, 2102118281))
 
 
 LOG_FILE_NAME = "logs.txt"
