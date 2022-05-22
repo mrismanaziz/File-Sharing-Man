@@ -51,7 +51,7 @@ async def varsFunc(client: Bot, message: Message):
 APP_ID = <code>{APP_ID}</code>
 API_HASH = <code>{API_HASH}</code>
 TG_BOT_TOKEN = <code>{TG_BOT_TOKEN}</code>
-DB_URI = <code>{DB_URI}</code>
+DATABASE_URL = <code>{DB_URI}</code>
 OWNER = <code>{OWNER}</code>
 ADMINS = <code>{ADMINS}</code>
     
