@@ -16,7 +16,7 @@
       "value": "mrismanaziz"
     },
     "ADMINS": {
-      "description": "Masukan User ID untuk mendapatkan hak Admin BOT [Hanya dapat membuat link]",
+      "description": "Masukan User ID untuk mendapatkan hak Admin BOT [ Gunakan Spasi untuk Pemisah User ID ]",
       "value": "0"
     },
     "APP_ID": {
