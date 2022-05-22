@@ -76,9 +76,10 @@ async def Paste(text):
     return link
 
 
-@Bot.on_message(filters.command("get_var") & filters.user(ADMINS))
+@Bot.on_message(filters.command("getvar") & filters.user(ADMINS))
 async def varget_(client: Bot, message: Message):
     if len(message.command) != 2:
+        heroku_config = HAPP.config()
         configvars = heroku_config.to_dict()
         msg = "".join(f"<code>{item}</code> = <code>{configvars[item]}</code>\n" for item in configvars)
         await message.reply_text(msg)
@@ -106,7 +107,7 @@ async def varget_(client: Bot, message: Message):
             return await message.reply_text(f"<b>{check_var}:</b> <code>{str(output)}</code>")
 
 
-@Bot.on_message(filters.command("del_var") & filters.user(ADMINS))
+@Bot.on_message(filters.command("delvar") & filters.user(ADMINS))
 async def vardel_(client: Bot, message: Message):
     if len(message.command) != 2:
         return await message.reply_text("<b>Usage:</b>\n/del_var [Var Name]")
@@ -134,7 +135,7 @@ async def vardel_(client: Bot, message: Message):
             os.system(f"kill -9 {os.getpid()} && bash start")
 
 
-@Bot.on_message(filters.command("set_var") & filters.user(ADMINS))
+@Bot.on_message(filters.command("setvar") & filters.user(ADMINS))
 async def set_var(client: Bot, message: Message):
     if len(message.command) < 3:
         return await message.reply_text("<b>Usage:</b>\n/set_var [Var Name] [Var Value]")
