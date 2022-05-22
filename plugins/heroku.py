@@ -110,7 +110,7 @@ async def varget_(client: Bot, message: Message):
 @Bot.on_message(filters.command("delvar") & filters.user(ADMINS))
 async def vardel_(client: Bot, message: Message):
     if len(message.command) != 2:
-        return await message.reply_text("<b>Usage:</b>\n/del_var [Var Name]")
+        return await message.reply_text("<b>Usage:</b>\n/delvar [Var Name]")
     check_var = message.text.split(None, 2)[1]
     if await is_heroku():
         if HAPP is None:
@@ -138,7 +138,7 @@ async def vardel_(client: Bot, message: Message):
 @Bot.on_message(filters.command("setvar") & filters.user(ADMINS))
 async def set_var(client: Bot, message: Message):
     if len(message.command) < 3:
-        return await message.reply_text("<b>Usage:</b>\n/set_var [Var Name] [Var Value]")
+        return await message.reply_text("<b>Usage:</b>\n/setvar [Var Name] [Var Value]")
     to_set = message.text.split(None, 2)[1].strip()
     value = message.text.split(None, 2)[2].strip()
     if await is_heroku():
