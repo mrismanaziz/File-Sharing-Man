@@ -79,7 +79,7 @@ async def Paste(text):
 @Bot.on_message(filters.command("get_var") & filters.user(ADMINS))
 async def varget_(client: Bot, message: Message):
     if len(message.command) != 2:
-        return await message.reply_text("**Usage:**\n/get_var [Var Name]")
+        return await message.reply_text("<b>Usage:</b>\n/get_var [Var Name]")
     check_var = message.text.split(None, 2)[1]
     if await is_heroku():
         if HAPP is None:
@@ -89,7 +89,7 @@ async def varget_(client: Bot, message: Message):
         heroku_config = HAPP.config()
         if check_var in heroku_config:
             return await message.reply_text(
-                f"**{check_var}:** `{heroku_config[check_var]}`"
+                f"<b>{check_var}:</b> <code>{heroku_config[check_var]}</code>"
             )
         else:
             return await message.reply_text("Unable to find any such var.")
@@ -101,13 +101,13 @@ async def varget_(client: Bot, message: Message):
         if not output:
             await message.reply_text("Unable to find any such var.")
         else:
-            return await message.reply_text(f"**{check_var}:** `{str(output)}`")
+            return await message.reply_text(f"<b>{check_var}:</b> <code>{str(output)}</code>")
 
 
 @Bot.on_message(filters.command("del_var") & filters.user(ADMINS))
 async def vardel_(client: Bot, message: Message):
     if len(message.command) != 2:
-        return await message.reply_text("**Usage:**\n/del_var [Var Name]")
+        return await message.reply_text("<b>Usage:</b>\n/del_var [Var Name]")
     check_var = message.text.split(None, 2)[1]
     if await is_heroku():
         if HAPP is None:
@@ -135,7 +135,7 @@ async def vardel_(client: Bot, message: Message):
 @Bot.on_message(filters.command("set_var") & filters.user(ADMINS))
 async def set_var(client: Bot, message: Message):
     if len(message.command) < 3:
-        return await message.reply_text("**Usage:**\n/set_var [Var Name] [Var Value]")
+        return await message.reply_text("<b>Usage:</b>\n/set_var [Var Name] [Var Value]")
     to_set = message.text.split(None, 2)[1].strip()
     value = message.text.split(None, 2)[2].strip()
     if await is_heroku():
@@ -193,12 +193,12 @@ async def update_(client: Bot, message: Message):
     )
     for info in repo.iter_commits(f"HEAD..origin/{UPSTREAM_BRANCH}"):
         updates += f"<b>➣ #{info.count()}: [{info.summary}]({REPO_}/commit/{info}) by -> {info.author}</b>\n\t\t\t\t<b>➥ Commited on:</b> {ordinal(int(datetime.fromtimestamp(info.committed_date).strftime('%d')))} {datetime.fromtimestamp(info.committed_date).strftime('%b')}, {datetime.fromtimestamp(info.committed_date).strftime('%Y')}\n\n"
-    _update_response_ = "<b>A new update is available for the Bot!</b>\n\n➣ Pushing Updates Now</code>\n\n**<u>Updates:</u>**\n\n"
+    _update_response_ = "<b>A new update is available for the Bot!</b>\n\n➣ Pushing Updates Now</code>\n\n<b><u>Updates:</u></b>\n\n"
     _final_updates_ = _update_response_ + updates
     if len(_final_updates_) > 4096:
         url = await Paste(updates)
         nrs = await response.edit(
-            f"<b>A new update is available for the Bot!</b>\n\n➣ Pushing Updates Now</code>\n\n**<u>Updates:</u>**\n\n[Click Here to checkout Updates]({url})"
+            f"<b>A new update is available for the Bot!</b>\n\n➣ Pushing Updates Now</code>\n\n<b><u>Updates:</u></b>\n\n[Click Here to checkout Updates]({url})"
         )
     else:
         nrs = await response.edit(_final_updates_, disable_web_page_preview=True)
