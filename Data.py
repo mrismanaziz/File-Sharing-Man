@@ -13,10 +13,12 @@ class Data:
  ├ /ping - Untuk mengecek bot hidup
  └ /uptime - Untuk melihat status bot 
  
-
  ❏ Perintah Untuk Admin BOT
  ├ /logs - Untuk melihat logs bot
  ├ /vars - Untuk melihat variable bot
+ ├ /setvar - Untuk mengatur var dengan command dibot
+ ├ /delvar - Untuk menghapus var dengan command dibot
+ ├ /getvar - Untuk melihat salah satu var dengan command dibot
  ├ /users - Untuk melihat statistik pengguna bot
  ├ /batch - Untuk membuat link lebih dari satu file
  ├ /speedtest - Untuk Mengetes kecepatan server bot
