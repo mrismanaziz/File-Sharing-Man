@@ -42,7 +42,7 @@ async def get_bot_logs(client: Bot, m: Message):
 
 @Bot.on_message(filters.command("vars") & filters.user(ADMINS))
 async def varsFunc(client: Bot, message: Message):
-    mystic = await message.reply_text("Tunggu Sebentar...")
+    Man = await message.reply_text("Tunggu Sebentar...")
     text = f"""<u><b>CONFIG VARS @{client.username}</b></u>
 APP_ID : <code>{APP_ID}</code>
 APP_HASH : <code>{APP_HASH}</code>
@@ -62,4 +62,4 @@ FORCE_MSG : <code>{FORCE_MSG}</code>
 HEROKU_APP_NAME : <code>{HEROKU_APP_NAME}</code>
 HEROKU_API_KEY : <code>{HEROKU_API_KEY}</code>
     """
-    await mystic.edit_text(text)
+    await Man.edit_text(text)
