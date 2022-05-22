@@ -179,9 +179,7 @@ async def update_(client: Bot, message: Message):
     os.system(to_exc)
     await asyncio.sleep(7)
     verification = ""
-    REPO_ = b64decode(
-        "aHR0cHM6Ly9naXRodWIuY29tL21yaXNtYW5heml6L0ZpbGUtU2hhcmluZy1NYW4="
-    ).decode("utf-8")
+    REPO_ = repo.remotes.origin.url.split(".git")[0]
     for checks in repo.iter_commits(f"HEAD..origin/{UPSTREAM_BRANCH}"):
         verification = str(checks.count())
     if verification == "":
