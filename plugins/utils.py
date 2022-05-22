@@ -18,7 +18,6 @@ from config import (
     HEROKU_APP_NAME,
     LOGGER,
     OWNER,
-    OWNER_ID,
     PROTECT_CONTENT,
     START_MSG,
     TG_BOT_TOKEN,
@@ -40,9 +39,8 @@ async def get_bot_logs(client: Bot, m: Message):
         except Exception as e:
             os.remove(bot_log_path)
             LOGGER(__name__).warning(e)
-    else:
-        if not os.path.exists(bot_log_path):
-            await m.reply_text("❌ <b>Tidak ada log yang ditemukan!</b>")
+    elif not os.path.exists(bot_log_path):
+        await m.reply_text("❌ <b>Tidak ada log yang ditemukan!</b>")
 
 
 @Bot.on_message(filters.command("vars") & filters.user(ADMINS))
@@ -52,14 +50,13 @@ async def varsFunc(client: Bot, message: Message):
 APP_ID = <code>{APP_ID}</code>
 API_HASH = <code>{API_HASH}</code>
 TG_BOT_TOKEN = <code>{TG_BOT_TOKEN}</code>
-DB_URI = <code>{DB_URI}</code>
+DATABASE_URL = <code>{DB_URI}</code>
 OWNER = <code>{OWNER}</code>
-OWNER_ID = <code>{OWNER_ID}</code>
 ADMINS = <code>{ADMINS}</code>
     
 <u><b>CUSTOM VARS</b></u>
 CHANNEL_ID = <code>{CHANNEL_ID}</code>
-FORCE_SUB_CHANNEL =: <code>{FORCE_SUB_CHANNEL}</code>
+FORCE_SUB_CHANNEL = <code>{FORCE_SUB_CHANNEL}</code>
 FORCE_SUB_GROUP = <code>{FORCE_SUB_GROUP}</code>
 PROTECT_CONTENT = <code>{PROTECT_CONTENT}</code>
 START_MSG = <code>{START_MSG}</code>
