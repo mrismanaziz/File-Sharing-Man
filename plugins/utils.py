@@ -55,6 +55,7 @@ TG_BOT_TOKEN : <code>{TG_BOT_TOKEN}</code>
 DB_URI : <code>{DB_URI}</code>
 OWNER : <code>{OWNER}</code>
 OWNER_ID : <code>{OWNER_ID}</code>
+ADMINS : <code>{ADMINS}</code>
     
 <u><b>CUSTOM VARS</b></u>
 CHANNEL_ID : <code>{CHANNEL_ID}</code>
