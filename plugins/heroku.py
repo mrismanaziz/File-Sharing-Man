@@ -54,7 +54,7 @@ XCB = [
 ]
 
 
-def is_heroku():
+async def is_heroku():
     return "heroku" in socket.getfqdn()
 
 
