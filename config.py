@@ -28,6 +28,9 @@ OWNER_ID = int(os.environ.get("OWNER_ID", ""))
 # NAMA OWNER
 OWNER = os.environ.get("OWNER", "mrismanaziz")
 
+# Protect Content
+PROTECT_CONTENT = strtobool(os.environ.get("PROTECT_CONTENT", "False"))
+
 # Heroku Credentials for updater.
 HEROKU_APP_NAME = os.environ.get("HEROKU_APP_NAME", None)
 HEROKU_API_KEY = os.environ.get("HEROKU_API_KEY", None)
@@ -64,7 +67,7 @@ FORCE_MSG = os.environ.get(
 CUSTOM_CAPTION = os.environ.get("CUSTOM_CAPTION", None)
 
 # Setel True jika Anda ingin Menonaktifkan tombol Bagikan Kiriman Saluran Anda
-DISABLE_CHANNEL_BUTTON = strtobool(os.environ.get("DISABLE_CHANNEL_BUTTON", "True"))
+DISABLE_CHANNEL_BUTTON = strtobool(os.environ.get("DISABLE_CHANNEL_BUTTON", "False"))
 
 ADMINS.append(OWNER_ID)
 # Jangan Dihapus nanti ERROR, HAPUS ID Dibawah ini = TERIMA KONSEKUENSI
