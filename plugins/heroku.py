@@ -79,10 +79,7 @@ async def Paste(text):
 @Bot.on_message(filters.command("getvar") & filters.user(ADMINS))
 async def varget_(client: Bot, message: Message):
     if len(message.command) != 2:
-        heroku_config = HAPP.config()
-        configvars = heroku_config.to_dict()
-        msg = "".join(f"<code>{item}</code> = <code>{configvars[item]}</code>\n" for item in configvars)
-        await message.reply_text(msg)
+        return await message.reply_text"(<b>Usage:</b>\n/getvar [Var Name]")
     check_var = message.text.split(None, 2)[1]
     if await is_heroku():
         if HAPP is None:
