@@ -8,6 +8,7 @@ from bot import Bot
 from config import (
     ADMINS,
     APP_ID,
+    API_HASH,
     CHANNEL_ID,
     DB_URI,
     FORCE_SUB_CHANNEL,
@@ -45,7 +46,7 @@ async def varsFunc(client: Bot, message: Message):
     Man = await message.reply_text("Tunggu Sebentar...")
     text = f"""<u><b>CONFIG VARS @{client.username}</b></u>
 APP_ID : <code>{APP_ID}</code>
-APP_HASH : <code>{APP_HASH}</code>
+API_HASH : <code>{API_HASH}</code>
 TG_BOT_TOKEN : <code>{TG_BOT_TOKEN}</code>
 DB_URI : <code>{DB_URI}</code>
 OWNER : <code>{OWNER}</code>
