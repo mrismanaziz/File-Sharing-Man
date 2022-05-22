@@ -70,7 +70,7 @@ async def varget_(client: Bot, message: Message):
         else:
             return await message.reply_text(f"Tidak dapat menemukan var {check_var}")
     else:
-        path = dotenv.find_dotenv()
+        path = dotenv.find_dotenv("config.env")
         if not path:
             return await message.reply_text(".env file not found.")
         output = dotenv.get_key(path, check_var)
@@ -99,7 +99,7 @@ async def vardel_(client: Bot, message: Message):
         else:
             return await message.reply_text(f"Tidak dapat menemukan var {check_var}")
     else:
-        path = dotenv.find_dotenv()
+        path = dotenv.find_dotenv("config.env")
         if not path:
             return await message.reply_text(".env file not found.")
         output = dotenv.unset_key(path, check_var)
@@ -130,7 +130,7 @@ async def set_var(client: Bot, message: Message):
             )
         heroku_config[to_set] = value
     else:
-        path = dotenv.find_dotenv()
+        path = dotenv.find_dotenv("config.env")
         if not path:
             return await message.reply_text(".env file not found.")
         dotenv.set_key(path, to_set, value)
