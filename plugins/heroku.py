@@ -73,13 +73,12 @@ async def varget_(client: Bot, message: Message):
         path = dotenv.find_dotenv("config.env")
         if not path:
             return await message.reply_text(".env file not found.")
-        output = dotenv.get_key(path, check_var)
-        if not output:
-            await message.reply_text(f"Tidak dapat menemukan var {check_var}")
-        else:
+        if output := dotenv.get_key(path, check_var):
             return await message.reply_text(
                 f"<b>{check_var}:</b> <code>{str(output)}</code>"
             )
+        else:
+            await message.reply_text(f"Tidak dapat menemukan var {check_var}")
 
 
 @Bot.on_message(filters.command("delvar") & filters.user(ADMINS))
@@ -93,11 +92,10 @@ async def vardel_(client: Bot, message: Message):
                 "Pastikan HEROKU_API_KEY dan HEROKU_APP_NAME anda dikonfigurasi dengan benar di config vars heroku"
             )
         heroku_config = HAPP.config()
-        if check_var in heroku_config:
-            await message.reply_text(f"Berhasil Menghapus var {check_var}")
-            del heroku_config[check_var]
-        else:
+        if check_var not in heroku_config:
             return await message.reply_text(f"Tidak dapat menemukan var {check_var}")
+        await message.reply_text(f"Berhasil Menghapus var {check_var}")
+        del heroku_config[check_var]
     else:
         path = dotenv.find_dotenv("config.env")
         if not path:
@@ -105,9 +103,8 @@ async def vardel_(client: Bot, message: Message):
         output = dotenv.unset_key(path, check_var)
         if not output[0]:
             return await message.reply_text(f"Tidak dapat menemukan var {check_var}")
-        else:
-            await message.reply_text(f"Berhasil Menghapus var {check_var}")
-            os.system(f"kill -9 {os.getpid()} && bash start")
+        await message.reply_text(f"Berhasil Menghapus var {check_var}")
+        os.system(f"kill -9 {os.getpid()} && bash start")
 
 
 @Bot.on_message(filters.command("setvar") & filters.user(ADMINS))
