@@ -6,22 +6,30 @@ import asyncio
 from datetime import datetime
 from time import time
 
-from pyrogram import Client, filters
-from pyrogram.errors import FloodWait, InputUserDeactivated, UserIsBlocked
-from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup, Message
-
 from bot import Bot
-from .button import fsub_button, start_button
-from config import ADMINS, CUSTOM_CAPTION, DISABLE_CHANNEL_BUTTON, FORCE_MSG, START_MSG
+from config import (
+    ADMINS,
+    CUSTOM_CAPTION,
+    DISABLE_CHANNEL_BUTTON,
+    FORCE_MSG,
+    PROTECT_CONTENT,
+    START_MSG,
+)
 from database.sql import add_user, full_userbase, query_msg
+from pyrogram import filters
+from pyrogram.errors import FloodWait, InputUserDeactivated, UserIsBlocked
+from pyrogram.types import InlineKeyboardMarkup, Message
+
 from helper_func import decode, get_messages, subsall, subsch, subsgc
+
+from .button import fsub_button, start_button
 
 START_TIME = datetime.utcnow()
 START_TIME_ISO = START_TIME.replace(microsecond=0).isoformat()
 TIME_DURATION_UNITS = (
     ("week", 60 * 60 * 24 * 7),
-    ("day", 60 ** 2 * 24),
-    ("hour", 60 ** 2),
+    ("day", 60**2 * 24),
+    ("hour", 60**2),
     ("min", 60),
     ("sec", 1),
 )
@@ -99,6 +107,7 @@ async def start_command(client: Bot, message: Message):
                     chat_id=message.from_user.id,
                     caption=caption,
                     parse_mode="html",
+                    protect_content=PROTECT_CONTENT,
                     reply_markup=reply_markup,
                 )
                 await asyncio.sleep(0.5)
@@ -108,6 +117,7 @@ async def start_command(client: Bot, message: Message):
                     chat_id=message.from_user.id,
                     caption=caption,
                     parse_mode="html",
+                    protect_content=PROTECT_CONTENT,
                     reply_markup=reply_markup,
                 )
             except BaseException:
@@ -178,11 +188,11 @@ async def send_text(client: Bot, message: Message):
             chat_id = int(row[0])
             if chat_id not in ADMINS:
                 try:
-                    await broadcast_msg.copy(chat_id)
+                    await broadcast_msg.copy(chat_id, protect_content=PROTECT_CONTENT)
                     successful += 1
                 except FloodWait as e:
                     await asyncio.sleep(e.x)
-                    await broadcast_msg.copy(chat_id)
+                    await broadcast_msg.copy(chat_id, protect_content=PROTECT_CONTENT)
                     successful += 1
                 except UserIsBlocked:
                     blocked += 1
