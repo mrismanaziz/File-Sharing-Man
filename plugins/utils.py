@@ -7,10 +7,11 @@ import os
 from bot import Bot
 from config import (
     ADMINS,
-    APP_ID,
     API_HASH,
+    APP_ID,
     CHANNEL_ID,
     DB_URI,
+    FORCE_MSG,
     FORCE_SUB_CHANNEL,
     FORCE_SUB_GROUP,
     HEROKU_API_KEY,
@@ -18,6 +19,9 @@ from config import (
     LOGGER,
     OWNER,
     OWNER_ID,
+    PROTECT_CONTENT,
+    START_MSG,
+    TG_BOT_TOKEN,
 )
 from pyrogram import filters
 from pyrogram.types import Message
