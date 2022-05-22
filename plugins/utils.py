@@ -39,9 +39,8 @@ async def get_bot_logs(client: Bot, m: Message):
         except Exception as e:
             os.remove(bot_log_path)
             LOGGER(__name__).warning(e)
-    else:
-        if not os.path.exists(bot_log_path):
-            await m.reply_text("❌ <b>Tidak ada log yang ditemukan!</b>")
+    elif not os.path.exists(bot_log_path):
+        await m.reply_text("❌ <b>Tidak ada log yang ditemukan!</b>")
 
 
 @Bot.on_message(filters.command("vars") & filters.user(ADMINS))
