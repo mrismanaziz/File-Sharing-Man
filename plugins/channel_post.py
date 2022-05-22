@@ -9,7 +9,7 @@ from pyrogram.errors import FloodWait
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup, Message
 
 from bot import Bot
-from config import ADMINS, CHANNEL_ID, DISABLE_CHANNEL_BUTTON
+from config import ADMINS, CHANNEL_ID, DISABLE_CHANNEL_BUTTON, LOGGER
 from helper_func import encode
 
 
@@ -32,7 +32,7 @@ async def channel_post(client: Client, message: Message):
             chat_id=client.db_channel.id, disable_notification=True
         )
     except Exception as e:
-        print(e)
+        LOGGER(__name__).warning(a)
         await reply_text.edit_text("<b>Telah Terjadi Error...</b>")
         return
     converted_id = post_message.message_id * abs(client.db_channel.id)
@@ -84,4 +84,4 @@ async def new_post(client: Client, message: Message):
     try:
         await message.edit_reply_markup(reply_markup)
     except Exception as e:
-        print(e)
+        LOGGER(__name__).warning(a)
