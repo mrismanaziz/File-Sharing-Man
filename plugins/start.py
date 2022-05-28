@@ -42,14 +42,19 @@ async def _human_time_duration(seconds):
     for unit, div in TIME_DURATION_UNITS:
         amount, seconds = divmod(int(seconds), div)
         if amount > 0:
-            parts.append("{} {}{}".format(amount, unit, "" if amount == 1 else "s"))
+            parts.append(f'{amount} {unit}{"" if amount == 1 else "s"}')
     return ", ".join(parts)
 
 
 @Bot.on_message(filters.command("start") & filters.private & subsall & subsch & subsgc)
 async def start_command(client: Bot, message: Message):
     id = message.from_user.id
-    user_name = "@" + message.from_user.username if message.from_user.username else None
+    user_name = (
+        f"@{message.from_user.username}"
+        if message.from_user.username
+        else None
+    )
+
     try:
         await add_user(id, user_name)
     except:
@@ -95,11 +100,12 @@ async def start_command(client: Bot, message: Message):
 
             if bool(CUSTOM_CAPTION) & bool(msg.document):
                 caption = CUSTOM_CAPTION.format(
-                    previouscaption="" if not msg.caption else msg.caption.html,
+                    previouscaption=msg.caption.html if msg.caption else "",
                     filename=msg.document.file_name,
                 )
+
             else:
-                caption = "" if not msg.caption else msg.caption.html
+                caption = msg.caption.html if msg.caption else ""
 
             reply_markup = msg.reply_markup if DISABLE_CHANNEL_BUTTON else None
             try:
@@ -128,9 +134,9 @@ async def start_command(client: Bot, message: Message):
             text=START_MSG.format(
                 first=message.from_user.first_name,
                 last=message.from_user.last_name,
-                username=None
-                if not message.from_user.username
-                else "@" + message.from_user.username,
+                username=f"@{message.from_user.username}"
+                if message.from_user.username
+                else None,
                 mention=message.from_user.mention,
                 id=message.from_user.id,
             ),
@@ -138,6 +144,7 @@ async def start_command(client: Bot, message: Message):
             disable_web_page_preview=True,
             quote=True,
         )
+
 
     return
 
@@ -149,9 +156,9 @@ async def not_joined(client: Bot, message: Message):
         text=FORCE_MSG.format(
             first=message.from_user.first_name,
             last=message.from_user.last_name,
-            username=None
-            if not message.from_user.username
-            else "@" + message.from_user.username,
+            username=f"@{message.from_user.username}"
+            if message.from_user.username
+            else None,
             mention=message.from_user.mention,
             id=message.from_user.id,
         ),
