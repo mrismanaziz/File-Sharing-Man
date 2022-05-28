@@ -1,0 +1,38 @@
+name: PyLint
+on: push
+jobs:
+  PEP8:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Setup Python
+        uses: actions/setup-python@v1
+        with:
+          python-version: 3.9
+      - name: Install Python lint libraries
+        run: |
+          pip install autoflake isort black
+      - name: Remove unused imports and variables
+        run: |
+          autoflake --in-place --recursive --remove-all-unused-imports --remove-unused-variables --ignore-init-module-imports .
+      - name: lint with isort and black
+        run: |
+          isort .
+          black .
+      - name: Import GPG key
+        id: import_gpg
+        uses: crazy-max/ghaction-import-gpg@v2
+        with:
+            git_user_signingkey: true
+            git_commit_gpgsign: true
+        env:
+          GPG_PRIVATE_KEY: ${{ secrets.GPG_PRIVATE_KEY }}
+          PASSPHRASE: ${{ secrets.PASSPHRASE }}
+      - uses: stefanzweifel/git-auto-commit-action@v4
+        with:
+          commit_message: 'Man-Userbot: auto fixes'
+          commit_options: '--no-verify --signoff'
+          repository: .
+          commit_user_name: jamesbronx 
+          commit_user_email: ajoronal@gmail.com
+          commit_author: jamesbronx <ajoronalgmail.com>
