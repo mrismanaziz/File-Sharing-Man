@@ -11,7 +11,7 @@ from git.exc import InvalidGitRepositoryError
 from pyrogram import Client, filters
 from pyrogram.types import Message
 
-from main import LOGGER
+from config import LOGGER
 
 UPSTREAM_REPO = "https://github.com/mrismanaziz/File-Sharing-Man"
 
