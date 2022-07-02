@@ -89,7 +89,7 @@ bash start
 
 #### CUSTOM_CAPTION
 
-* `{filename}` - file name of the Document
+* `{filename}` - t
 * `{previouscaption}` - Original Caption
 
 
@@ -103,7 +103,7 @@ Laporkan Bug, Berikan Permintaan Fitur Di sana..
 - Thanks To Dan For His Awsome [Libary](https://github.com/pyrogram/pyrogram)
 - Thanks To [CodeXBotz](https://github.com/CodeXBotz/File-Sharing-Bot)
 - Our Support Group Members
-
+- t.me/TLB_OFC
 ### Licence
 [![GNU GPLv3 Image](https://www.gnu.org/graphics/gplv3-127x51.png)](http://www.gnu.org/licenses/gpl-3.0.en.html)  
 
