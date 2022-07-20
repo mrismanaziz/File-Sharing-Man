@@ -73,7 +73,10 @@ async def channel_post(client: Client, message: Message):
     )
 
     if not DISABLE_CHANNEL_BUTTON:
-        await post_message.edit_reply_markup(reply_markup)
+        try:
+            await post_message.edit_reply_markup(reply_markup)
+        except Exception:
+            pass
 
 
 @Bot.on_message(
@@ -99,5 +102,5 @@ async def new_post(client: Client, message: Message):
     )
     try:
         await message.edit_reply_markup(reply_markup)
-    except Exception as e:
-        LOGGER(__name__).warning(e)
+    except Exception:
+        pass
