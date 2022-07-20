@@ -29,6 +29,7 @@ from helper_func import encode
             "delvar",
             "getvar",
             "setvar",
+            "speedtest",
             "update",
             "stats",
             "vars",
