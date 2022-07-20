@@ -6,12 +6,13 @@ import os
 import sys
 from os import environ, execle, system
 
+from bot import Bot
 from git import Repo
 from git.exc import InvalidGitRepositoryError
 from pyrogram import Client, filters
 from pyrogram.types import Message
 
-from config import LOGGER
+from config import ADMINS, LOGGER
 
 UPSTREAM_REPO = "https://github.com/mrismanaziz/File-Sharing-Man"
 
