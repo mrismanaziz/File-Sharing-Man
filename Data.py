@@ -23,6 +23,7 @@ class Data:
  ├ /batch - Untuk membuat link lebih dari satu file
  ├ /speedtest - Untuk Mengetes kecepatan server bot
  └ /broadcast - Untuk mengirim pesan broadcast ke pengguna bot
+
 👨‍💻 Develoved by @Lunatic0de</b>
 """
 
@@ -46,9 +47,11 @@ class Data:
 
     ABOUT = """
 <b>Tentang Bot ini:
+
 @{} adalah Bot Telegram untuk menyimpan Postingan atau File yang dapat Diakses melalui Link Khusus.
  • Creator: @{}
  • Source Code: <a href='https://github.com/mrismanaziz/File-Sharing-Man'>File-Sharing-Man v4</a>
  • Owner Repo: @mrismanaziz
+
 👨‍💻 Develoved by @Lunatic0de</b>
 """
