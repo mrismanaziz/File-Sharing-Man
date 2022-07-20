@@ -6,7 +6,6 @@
     "file",
     "sharing"
   ],
-  "repository": "https://github.com/mrismanaziz/File-Sharing-Man",
   "logo": "https://telegra.ph/file/9dc4e335feaaf6a214818.jpg",
   "env": {
     "TG_BOT_TOKEN": {
@@ -36,6 +35,10 @@
     "CHANNEL_ID": {
       "description": "Masukan ID Channel Untuk [Channel Database]",
       "value": "-100"
+    },
+    "PROTECT_CONTENT": {
+      "description": "Untuk Mencegah pengguna bot untuk mendownload/memforward/mengscreenshot konten yang dikirim di bot [ Bila ingin diaktifkan ubah ke True ]",
+      "value": "False"
     },
     "FORCE_SUB_CHANNEL": {
       "description": "Masukan ID dari Channel Atau Group Untuk Wajib Subscribenya, Bila tidak ingin dipakai Fsubnya, isi dengan 0",
