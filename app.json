@@ -1,6 +1,7 @@
 {
   "name": "File Sharing Man",
   "description": "BOT Multi Force Subs File Sharing Bot berguna untuk menyimpan file dan dapat diakses melalui link khusus",
+  "stack": "heroku-22",
   "keywords": [
     "telegram",
     "file",
