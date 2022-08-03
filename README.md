@@ -1,11 +1,15 @@
 # File-Sharing-Man
 
 Bot Telegram untuk menyimpan Posting atau File yang dapat Diakses melalui Link Khusus.
-Saya Kira Ini Akan Bermanfaat Bagi Banyak Orang.. 😇.
+Saya Kira Ini Akan Bermanfaat Bagi Banyak Orang.
 
-##
+## ⚠️ Disclaimer
 
-**Jika Anda memerlukan tambahan module lagi dalam repo atau Jika Anda menemukan bug, silahkan report di group [@SharingUserbot](https://www.telegram.dog/SharingUserbot)**
+```
+Saya tidak bertanggung jawab atas penyalahgunaan bot ini.
+Bot ini dimaksudkan untuk membantu untuk menyimpan file yang diinginkan yang dapat diakses melalui Link Khusus.
+Gunakan bot ini dengan risiko Anda sendiri, dan gunakan bot ini dengan bijak.
+```
 
 ### Features
 - Sepenuhnya dapat dicustom.
@@ -20,9 +24,8 @@ Saya Kira Ini Akan Bermanfaat Bagi Banyak Orang.. 😇.
 - Tambahkan bot ke Channel ForceSub tambahkan bot sebagai ADMIN
 - Tambahkan bot ke Group ForceSub tambahkan bot sebagai ADMIN
 
-##
-### Installation
-#### Deploy on Heroku
+## 🛡 Installation
+### Deploy on Heroku
 [![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://risman.vercel.app/file-deploy.html)</br>
 
 **Tonton Video Tutorial Ini di YouTube untuk Bantuan memasang di Heroku**<br>
@@ -30,7 +33,7 @@ Saya Kira Ini Akan Bermanfaat Bagi Banyak Orang.. 😇.
   <img src="https://img.shields.io/badge/How%20to-Deploy-red?logo=youtube" width="147">
 </a><br>
 
-#### Deploy in your VPS
+### Deploy in your VPS
 ````bash
 git clone https://github.com/mrismanaziz/File-Sharing-Man
 cd File-Sharing-Man
@@ -40,24 +43,8 @@ cp sample_config.env config.env
 # gunakan CTRL + X untuk keluar dan kembali ke direktori File-Sharing-Man
 bash start
 ````
-
-### Admin Commands
-
-```
-/start - mulai bot atau dapatkan postingan
-
-/batch - buat link untuk lebih dari satu posting
-
-/genlink - buat link untuk satu posting
-
-/users - lihat statistik pengguna bot
-
-/broadcast - menyiarkan/broadcast pesan apa pun ke pengguna bot
-
-/ping - untuk mengecek bot
-
-/uptime - untuk melihat waktu aktif bot
-```
+<details>
+<summary><h3><b>🔗 Extra Custom & List Vars</b></h3></summary>
 
 ### Variables
 
@@ -92,19 +79,19 @@ bash start
 * `{filename}` - file name of the Document
 * `{previouscaption}` - Original Caption
 
+</details>
 
-## Support   
-Bergabunglah di [Group Telegram ](https://www.telegram.dog/SharingUserbot) Untuk Dukungan/Bantuan Dan Join [Channel](https://www.telegram.dog/Lunatic0de) untu info Update bot.   
-   
-Laporkan Bug, Berikan Permintaan Fitur Di sana.. 
+## 🏷 Support   
+- Follow Channel [@Lunatic0de](https://t.me/Lunatic0de) untuk info Update bot 
+- Gabung Group [@SharingUserbot](https://t.me/SharingUserbot) untuk diskusi, pelaporan bug, dan bantuan tentang File-Sharing-Man.
 
-### Credits
+## 👨🏻‍💻 Credits
 
-- Thanks To Dan For His Awsome [Libary](https://github.com/pyrogram/pyrogram)
-- Thanks To [CodeXBotz](https://github.com/CodeXBotz/File-Sharing-Bot)
-- Our Support Group Members
+-  [Dan](https://github.com/delivrance) for [Pyrogram](https://github.com/pyrogram/pyrogram)
+-  [Risman](https://github.com/mrismanaziz) for [File-Sharing-Man](https://github.com/mrismanaziz/File-Sharing-Man)
+-  Based on [CodeXBotz](https://github.com/CodeXBotz) Repo [File-Sharing-Bot](https://github.com/CodeXBotz/File-Sharing-Bot)
 
-### Licence
+## 📑 License
 [![GNU GPLv3 Image](https://www.gnu.org/graphics/gplv3-127x51.png)](http://www.gnu.org/licenses/gpl-3.0.en.html)  
 
 [FILE-SHARING-BOT](https://github.com/mrismanaziz/File-Sharing-Man/) is Free Software: You can use, study share and improve it at your
