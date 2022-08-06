@@ -17,12 +17,8 @@
       "description": "Masukan Username Telegram untuk Owner BOT [ Jangan Pake @ ]",
       "value": "mrismanaziz"
     },
-    "OWNER_ID": {
-      "description": "Masukan User ID Telegram untuk Owner BOT",
-      "value": "844432220"
-    },
     "ADMINS": {
-      "description": "Masukan User ID untuk mendapatkan hak Admin BOT [Hanya dapat membuat link]",
+      "description": "Masukan User ID untuk mendapatkan hak Admin di BOT [ Gunakan Spasi Untuk Pemisah User ID ]",
       "value": "0"
     },
     "APP_ID": {
