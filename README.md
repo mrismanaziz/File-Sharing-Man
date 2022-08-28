@@ -33,16 +33,6 @@ Gunakan bot ini dengan risiko Anda sendiri, dan gunakan bot ini dengan bijak.
   <img src="https://img.shields.io/badge/How%20to-Deploy-red?logo=youtube" width="147">
 </a><br>
 
-### Deploy in your VPS
-````bash
-git clone https://github.com/mrismanaziz/File-Sharing-Man
-cd File-Sharing-Man
-pip3 install -r requirements.txt
-cp sample_config.env config.env
-# edit config.env Anda dan isi VARS menggunakan nano config.env CTRL + S untuk menyimpan VARS Anda, 
-# gunakan CTRL + X untuk keluar dan kembali ke direktori File-Sharing-Man
-bash start
-````
 <details>
 <summary><h3><b>🔗 Extra Custom & List Vars</b></h3></summary>
 
