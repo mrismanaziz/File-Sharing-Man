@@ -1,6 +1,6 @@
 # (©)Codexbotz
-# Recode by @mrismanaziz
-# t.me/SharingUserbot & t.me/Lunatic0de
+# Recode by @dimsumsthd
+# t.me/publictelegramm & t.me/bioskopmovietrailer
 
 from bot import Bot
 from config import OWNER
