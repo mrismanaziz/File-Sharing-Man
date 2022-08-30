@@ -1,6 +1,6 @@
-# Credits: @mrismanaziz
-# FROM File-Sharing-Man <https://github.com/mrismanaziz/File-Sharing-Man/>
-# t.me/SharingUserbot & t.me/Lunatic0de
+# Credits: @dimsumsthd
+# FROM File-Sharing-Man <https://github.com/DIMSUMBOYS/File-Sharing-Sex>
+# t.me/publictelegramm & t.me/bioskopmovietrailer
 
 from pyrogram.types import InlineKeyboardButton
 
@@ -24,7 +24,7 @@ class Data:
  ├ /speedtest - Untuk Mengetes kecepatan server bot
  └ /broadcast - Untuk mengirim pesan broadcast ke pengguna bot
 
-👨‍💻 Develoved by @Lunatic0de</b>
+👨‍💻 Develoved by @dimsumsthd</b>
 """
 
     close = [
@@ -51,8 +51,8 @@ class Data:
 @{} adalah Bot Telegram untuk menyimpan Postingan atau File yang dapat Diakses melalui Link Khusus.
 
  • Creator: @{}
- • Source Code: <a href='https://github.com/mrismanaziz/File-Sharing-Man'>File-Sharing-Man v4</a>
- • Owner Repo: @mrismanaziz
+ • Source Code: <a href='https://github.com/DIMSUMBOYS/File-Sharing-Sex'>File-Sharing-Sex v4</a>
+ • Owner Repo: @dimsumsthd
 
-👨‍💻 Develoved by @Lunatic0de</b>
+👨‍💻 Develoved by @dimsumsthd</b>
 """
