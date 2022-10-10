@@ -1,9 +1,14 @@
-# File-Sharing-Man
+<h2 align="center">
+    ─「 File Sharing Man 」─ 
+</h2>
+
 
 Bot Telegram untuk menyimpan Posting atau File yang dapat Diakses melalui Link Khusus.
 Saya Kira Ini Akan Bermanfaat Bagi Banyak Orang.
 
-## ⚠️ Disclaimer
+<h2 align="center">
+    ─「 Disclaimer 」─
+</h2>
 
 ```
 Saya tidak bertanggung jawab atas penyalahgunaan bot ini.
@@ -11,22 +16,30 @@ Bot ini dimaksudkan untuk membantu untuk menyimpan file yang diinginkan yang dap
 Gunakan bot ini dengan risiko Anda sendiri, dan gunakan bot ini dengan bijak.
 ```
 
-### Features
+<h2 align="center">
+    ─「 Bot Features 」─
+</h2>
+
 - Sepenuhnya dapat dicustom.
 - Dapat di-deploy di heroku & vps.
 - Pesan sambutan & Forcesub yang dapat dicustom.
 - Lebih dari satu Posting dalam Satu Link (batch).
 - Fleksibel FSUB Button bisa 1 button atau 2 button menyesuaikan dengan var yang di isi.
 
-### Setup
+<h2 align="center">
+    ─「 Setup 」─
+</h2>
 
 - Tambahkan bot ke Channel Database dengan semua izin admin
 - Tambahkan bot ke Channel ForceSub tambahkan bot sebagai ADMIN
 - Tambahkan bot ke Group ForceSub tambahkan bot sebagai ADMIN
 
-## 🛡 Installation
-### Deploy on Heroku
-[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://risman.vercel.app/file-deploy.html)</br>
+<h2 align="center">
+    ─「 Deploy on Heroku 」─
+</h2>
+
+<p align="center"><a href="https://dashboard.heroku.com/new?template=https://github.com/mrismanaziz/File-Sharing-Man"> <img src="https://img.shields.io/badge/Deploy%20On%20Heroku-black?style=for-the-badge&logo=heroku" width="220" height="38.45"/></a></p>
+
 
 **Tonton Video Tutorial Ini di YouTube untuk Bantuan memasang di Heroku**<br>
 <a href="https://youtu.be/O2tieQgzYZg">
@@ -34,9 +47,11 @@ Gunakan bot ini dengan risiko Anda sendiri, dan gunakan bot ini dengan bijak.
 </a><br>
 
 <details>
-<summary><h3><b>🔗 Extra Custom & List Vars</b></h3></summary>
+<summary><h3><b>「 Extra Custom & List Vars 」</b></h3></summary>
 
-### Variables
+<h2 align="center">
+    ─「 Variables 」─
+</h2>
 
 * `API_HASH` Dapatkan API HASH di web my.telegram.org.
 * `API_ID` Dapatkan APP ID di web my.telegram.org
@@ -49,13 +64,20 @@ Gunakan bot ini dengan risiko Anda sendiri, dan gunakan bot ini dengan bijak.
 * `FORCE_SUB_CHANNEL` Masukan ID dari Channel Untuk Wajib Subscribenya
 * `FORCE_SUB_GROUP` Masukan ID dari Group Untuk Wajib Subscribenya
 
-### Extra Variables
+<h2 align="center">
+    ─「 Extra Variables 」─
+</h2>
 
 * `CUSTOM_CAPTION` letakkan teks teks Kustom Anda jika Anda ingin Mengatur Teks Kustom, Anda dapat menggunakan HTML dan <a href='https://github.com/mrismanaziz/File-Sharing-Man/blob/main/README.md#custom_caption'>fillings</a> untuk pemformatan (hanya untuk dokumen)
 * `DISABLE_CHANNEL_BUTTON` Masukan True untuk Nonaktifkan Tombol Berbagi Saluran, Default jika False
 
-### Fillings
-#### START_MESSAGE | FORCE_SUB_MESSAGE
+<h2 align="center">
+    ─「 Fillings 」─
+</h2>
+
+<h5 align="center">
+    「 START_MESSAGE | FORCE_SUB_MESSAGE 」
+</h5>
 
 * `{first}` - User first name
 * `{last}` - User last name
@@ -63,24 +85,34 @@ Gunakan bot ini dengan risiko Anda sendiri, dan gunakan bot ini dengan bijak.
 * `{mention}` - Mention the user
 * `{username}` - Username
 
-#### CUSTOM_CAPTION
+<h3 align="center">
+    ─「 CUSTOM_CAPTION 」─
+</h3>
 
 * `{filename}` - file name of the Document
 * `{previouscaption}` - Original Caption
 
 </details>
 
-## 🏷 Support   
+<h2 align="center">
+    ─「 SUPPORT 」─
+</h2>
+
 - Follow Channel [@Lunatic0de](https://t.me/Lunatic0de) untuk info Update bot 
 - Gabung Group [@SharingUserbot](https://t.me/SharingUserbot) untuk diskusi, pelaporan bug, dan bantuan tentang File-Sharing-Man.
 
-## 👨🏻‍💻 Credits
+<h2 align="center">
+    ─「 Credits 」─
+</h2>
 
 -  [Dan](https://github.com/delivrance) for [Pyrogram](https://github.com/pyrogram/pyrogram)
 -  [Risman](https://github.com/mrismanaziz) for [File-Sharing-Man](https://github.com/mrismanaziz/File-Sharing-Man)
 -  Based on [CodeXBotz](https://github.com/CodeXBotz) Repo [File-Sharing-Bot](https://github.com/CodeXBotz/File-Sharing-Bot)
 
-## 📑 License
+<h2 align="center">
+    ─「 Licence 」─
+</h2>
+
 [![GNU GPLv3 Image](https://www.gnu.org/graphics/gplv3-127x51.png)](http://www.gnu.org/licenses/gpl-3.0.en.html)  
 
 [FILE-SHARING-BOT](https://github.com/mrismanaziz/File-Sharing-Man/) is Free Software: You can use, study share and improve it at your
@@ -93,3 +125,9 @@ published by the Free Software Foundation, either version 3 of the License, or
 
    **Berikan Bintang Repo ini jika Anda menyukainya ⭐⭐⭐⭐⭐**
 
+<div align="center">
+
+
+[![ForTheBadge built-with-love](http://ForTheBadge.com/images/badges/built-with-love.svg)](https://github.com/mrismanaziz/File-Sharing-Bot)
+
+</div>
