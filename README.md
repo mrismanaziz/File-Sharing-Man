@@ -128,6 +128,6 @@ published by the Free Software Foundation, either version 3 of the License, or
 <div align="center">
 
 
-[![ForTheBadge built-with-love](http://ForTheBadge.com/images/badges/built-with-love.svg)](https://github.com/mrismanaziz/File-Sharing-Bot)
+[![ForTheBadge built-with-love](http://ForTheBadge.com/images/badges/built-with-love.svg)](https://github.com/mrismanaziz/File-Sharing-Man)
 
 </div>
