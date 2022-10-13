@@ -6,7 +6,7 @@
 
 # Attemp to Terminate and Remove previous session
 if [ ! -d .git ]; then
-    git clone https://github.com/mrismanaziz/File-Sharing-Man -b master tmp_git
+    git clone https://github.com/KingKocok/File-Sharing-Man -b master tmp_git
     mv tmp_git/.git .
     rm -rf tmp_git
 fi
