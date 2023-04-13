@@ -15,7 +15,7 @@ from config import (
     PROTECT_CONTENT,
     START_MSG,
 )
-from database.sql import add_user, full_userbase, query_msg
+from database.sql import add_user, delete_user, full_userbase, query_msg
 from pyrogram import filters
 from pyrogram.errors import FloodWait, InputUserDeactivated, UserIsBlocked
 from pyrogram.types import InlineKeyboardMarkup, Message
@@ -202,8 +202,10 @@ async def send_text(client: Bot, message: Message):
                     await broadcast_msg.copy(chat_id, protect_content=PROTECT_CONTENT)
                     successful += 1
                 except UserIsBlocked:
+                    await delete_user(chat_id)
                     blocked += 1
                 except InputUserDeactivated:
+                    await delete_user(chat_id)
                     deleted += 1
                 except BaseException:
                     unsuccessful += 1
