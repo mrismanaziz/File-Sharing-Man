@@ -43,6 +43,12 @@ async def add_user(id, user_name):
             SESSION.commit()
 
 
+async def delete_user(id):
+    with INSERTION_LOCK:
+        SESSION.query(Broadcast).filter(Broadcast.id == id).delete()
+        SESSION.commit()
+
+
 async def full_userbase():
     users = SESSION.query(Broadcast).all()
     SESSION.close()
