@@ -7,6 +7,7 @@ import base64
 import re
 
 from pyrogram import filters
+from pyrogram.enums import ChatMemberStatus
 from pyrogram.errors import FloodWait
 from pyrogram.errors.exceptions.bad_request_400 import UserNotParticipant
 
@@ -26,7 +27,7 @@ async def subschannel(filter, client, update):
     except UserNotParticipant:
         return False
 
-    return member.status in ["creator", "administrator", "member"]
+    return member.status in [ChatMemberStatus.OWNER, ChatMemberStatus.ADMINISTRATOR, ChatMemberStatus.MEMBER]:
 
 
 async def subsgroup(filter, client, update):
@@ -40,7 +41,7 @@ async def subsgroup(filter, client, update):
     except UserNotParticipant:
         return False
 
-    return member.status in ["creator", "administrator", "member"]
+    return member.status in [ChatMemberStatus.OWNER, ChatMemberStatus.ADMINISTRATOR, ChatMemberStatus.MEMBER]:
 
 
 async def is_subscribed(filter, client, update):
@@ -62,7 +63,7 @@ async def is_subscribed(filter, client, update):
     except UserNotParticipant:
         return False
 
-    return member.status in ["creator", "administrator", "member"]
+    return member.status in [ChatMemberStatus.OWNER, ChatMemberStatus.ADMINISTRATOR, ChatMemberStatus.MEMBER]:
 
 
 async def encode(string):
