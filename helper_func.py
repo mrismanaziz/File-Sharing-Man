@@ -27,7 +27,7 @@ async def subschannel(filter, client, update):
     except UserNotParticipant:
         return False
 
-    return member.status in [ChatMemberStatus.OWNER, ChatMemberStatus.ADMINISTRATOR, ChatMemberStatus.MEMBER]:
+    return member.status in [ChatMemberStatus.OWNER, ChatMemberStatus.ADMINISTRATOR, ChatMemberStatus.MEMBER]
 
 
 async def subsgroup(filter, client, update):
@@ -41,7 +41,7 @@ async def subsgroup(filter, client, update):
     except UserNotParticipant:
         return False
 
-    return member.status in [ChatMemberStatus.OWNER, ChatMemberStatus.ADMINISTRATOR, ChatMemberStatus.MEMBER]:
+    return member.status in [ChatMemberStatus.OWNER, ChatMemberStatus.ADMINISTRATOR, ChatMemberStatus.MEMBER]
 
 
 async def is_subscribed(filter, client, update):
@@ -63,7 +63,7 @@ async def is_subscribed(filter, client, update):
     except UserNotParticipant:
         return False
 
-    return member.status in [ChatMemberStatus.OWNER, ChatMemberStatus.ADMINISTRATOR, ChatMemberStatus.MEMBER]:
+    return member.status in [ChatMemberStatus.OWNER, ChatMemberStatus.ADMINISTRATOR, ChatMemberStatus.MEMBER]
 
 
 async def encode(string):
