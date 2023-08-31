@@ -61,8 +61,7 @@ def updater():
 async def update_bot(_, message: Message):
     message.chat.id
     msg = await message.reply_text("Checking updates...")
-    update_avail = updater()
-    if update_avail:
+    if update_avail := updater():
         await msg.edit("✅ Update finished !")
         system("git pull -f && pip3 install --no-cache-dir -r requirements.txt")
         execle(sys.executable, sys.executable, "main.py", environ)
