@@ -46,6 +46,7 @@ def get_file_id(msg: Message):
             "voice",
             "sticker",
         ):
-            if obj := getattr(msg, message_type):
+            obj = getattr(msg, message_type):
+            if obj
                 setattr(obj, "message_type", message_type)
                 return obj
