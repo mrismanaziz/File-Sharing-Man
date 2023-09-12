@@ -16,36 +16,3 @@ async def showid(client, message):
         await message.reply_text(
             f"<b>User ID anda adalah:</b> <code>{user_id}</code>", quote=True
         )
-
-    elif chat_type in ["group", "supergroup"]:
-        _id = ""
-        _id += f"<b>👥 Chat ID</b>: <code>{message.chat.id}</code>"
-        if message.reply_to_message:
-            _id += f"<b>🙋‍♂️ Replied User ID</b>: <code>{message.reply_to_message.from_user.id}</code>"
-            file_info = get_file_id(message.reply_to_message)
-        else:
-            _id += "<b>👤 User ID</b>: <code>{message.from_user.id}</code>"
-            file_info = get_file_id(message)
-        if file_info:
-            _id += (
-                f"<b>{file_info.message_type}</b>: "
-                f"<code>{file_info.file_id}</code>\n"
-            )
-        await message.reply_text(_id, quote=True)
-
-
-def get_file_id(msg: Message):
-    if msg.media:
-        for message_type in (
-            "photo",
-            "animation",
-            "audio",
-            "document",
-            "video",
-            "video_note",
-            "voice",
-            "sticker",
-        ):
-            if obj := getattr(msg, message_type):
-                setattr(obj, "message_type", message_type)
-                return obj
