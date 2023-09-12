@@ -54,7 +54,7 @@ async def run_speedtest(client: Bot, message: Message):
 🚀 <b>Upload Speed:</b> {upload_speed:.2f} Mbps"""
 
     msg = await client.send_photo(
-        chat_id=message.chat.id, photo=path, caption=output, parse_mode="html"
+        chat_id=message.chat.id, photo=path, caption=output
     )
     os.remove(path)
     await m.delete()
