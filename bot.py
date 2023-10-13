@@ -5,7 +5,7 @@
 import pyromod.listen
 import sys
 
-from pyrogram import Client
+from pyrogram import Client, enums
 
 from config import (
     API_HASH,
@@ -23,7 +23,7 @@ from config import (
 class Bot(Client):
     def __init__(self):
         super().__init__(
-            "Bot",
+            name="Bot",
             api_hash=API_HASH,
             api_id=APP_ID,
             plugins={"root": "plugins"},
@@ -114,7 +114,7 @@ class Bot(Client):
             )
             sys.exit()
 
-        self.set_parse_mode("html")
+        self.set_parse_mode(enums.ParseMode.HTML)
         self.LOGGER(__name__).info(
             f"[🔥 BERHASIL DIAKTIFKAN! 🔥]\n\nBOT Dibuat oleh @{OWNER}\nJika @{OWNER} Membutuhkan Bantuan, Silahkan Tanyakan di Grup https://t.me/SharingUserbot"
         )
