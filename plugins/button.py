@@ -16,496 +16,288 @@ def start_button(client):
         and not FORCE_SUB_3
         and not FORCE_SUB_4
     ):
-        buttons = [
+        return [
             [
-                InlineKeyboardButton(
-                    text="Bantuan",
-                    callback_data="help"
-                ),
+                InlineKeyboardButton(text="Bantuan", callback_data="help"),
             ],
             [
-                InlineKeyboardButton(
-                    text="Tutup",
-                    callback_data="Tutup"
-                ),
+                InlineKeyboardButton(text="Tutup", callback_data="Tutup"),
             ],
         ]
-        return buttons
     if (
         FORCE_SUB_1 
         and not FORCE_SUB_2 
         and not FORCE_SUB_3 
         and not FORCE_SUB_4
     ):
-        buttons = [
+        return [
             [
-                InlineKeyboardButton(
-                    text="Bantuan",
-                    callback_data="help"
-                ),
+                InlineKeyboardButton(text="Bantuan", callback_data="help"),
             ],
             [
-                InlineKeyboardButton(
-                    text="Join",
-                    url=client.invitelink
-                ),
+                InlineKeyboardButton(text="Join", url=client.invitelink),
             ],
             [
-                InlineKeyboardButton(
-                    text="Tutup",
-                    callback_data="Tutup"
-                ),
+                InlineKeyboardButton(text="Tutup", callback_data="Tutup"),
             ],
         ]
-        return buttons
     if (
         FORCE_SUB_2 
         and not FORCE_SUB_1 
         and not FORCE_SUB_3 
         and not FORCE_SUB_4
     ):
-        buttons = [
+        return [
             [
-                InlineKeyboardButton(
-                    text="Bantuan",
-                    callback_data="help"
-                ),
+                InlineKeyboardButton(text="Bantuan", callback_data="help"),
             ],
             [
-                InlineKeyboardButton(
-                    text="Join",
-                    url=client.invitelink2
-                ),
+                InlineKeyboardButton(text="Join", url=client.invitelink2),
             ],
             [
-                InlineKeyboardButton(
-                    text="Tutup",
-                    callback_data="Tutup"
-                ),
+                InlineKeyboardButton(text="Tutup", callback_data="Tutup"),
             ],
         ]
-        return buttons
     if (
         FORCE_SUB_3
         and not FORCE_SUB_1 
         and not FORCE_SUB_2 
         and not FORCE_SUB_4
     ):
-        buttons = [
+        return [
             [
-                InlineKeyboardButton(
-                    text="Bantuan",
-                    callback_data="help"
-                ),
+                InlineKeyboardButton(text="Bantuan", callback_data="help"),
             ],
             [
-                InlineKeyboardButton(
-                    text="Join",
-                    url=client.invitelink3
-                ),
+                InlineKeyboardButton(text="Join", url=client.invitelink3),
             ],
             [
-                InlineKeyboardButton(
-                    text="Tutup",
-                    callback_data="Tutup"
-                ),
+                InlineKeyboardButton(text="Tutup", callback_data="Tutup"),
             ],
         ]
-        return buttons
     if (
         FORCE_SUB_4 
         and not FORCE_SUB_1 
         and not FORCE_SUB_2
         and not FORCE_SUB_3 
     ):
-        buttons = [
+        return [
             [
-                InlineKeyboardButton(
-                    text="Bantuan",
-                    callback_data="help"
-                ),
+                InlineKeyboardButton(text="Bantuan", callback_data="help"),
             ],
             [
-                InlineKeyboardButton(
-                    text="Join",
-                    url=client.invitelink4
-                ),
+                InlineKeyboardButton(text="Join", url=client.invitelink4),
             ],
             [
-                InlineKeyboardButton(
-                    text="Tutup",
-                    callback_data="Tutup"
-                ),
+                InlineKeyboardButton(text="Tutup", callback_data="Tutup"),
             ],
         ]
-        return buttons
     if (
         FORCE_SUB_1
         and FORCE_SUB_2
         and not FORCE_SUB_3
         and not FORCE_SUB_4
     ):
-        buttons = [
+        return [
             [
-                InlineKeyboardButton(
-                    text="Bantuan",
-                    callback_data="help"
-                ),
+                InlineKeyboardButton(text="Bantuan", callback_data="help"),
             ],
             [
-                InlineKeyboardButton(
-                    text="Join 1",
-                    url=client.invitelink
-                ),
-                InlineKeyboardButton(
-                    text="Join 2",
-                    url=client.invitelink2
-                ),
+                InlineKeyboardButton(text="Join 1", url=client.invitelink),
+                InlineKeyboardButton(text="Join 2", url=client.invitelink2),
             ],
             [
-                InlineKeyboardButton(
-                    text="Tutup",
-                    callback_data="Tutup"
-                ),
+                InlineKeyboardButton(text="Tutup", callback_data="Tutup"),
             ],
         ]
-        return buttons
     if (
         FORCE_SUB_1
         and FORCE_SUB_3
         and not FORCE_SUB_2
         and not FORCE_SUB_4
     ):
-        buttons = [
+        return [
             [
-                InlineKeyboardButton(
-                    text="Bantuan",
-                    callback_data="help"
-                ),
+                InlineKeyboardButton(text="Bantuan", callback_data="help"),
             ],
             [
-                InlineKeyboardButton(
-                    text="Join 1",
-                    url=client.invitelink
-                ),
-                InlineKeyboardButton(
-                    text="Join 2",
-                    url=client.invitelink3
-                ),
+                InlineKeyboardButton(text="Join 1", url=client.invitelink),
+                InlineKeyboardButton(text="Join 2", url=client.invitelink3),
             ],
             [
-                InlineKeyboardButton(
-                    text="Tutup",
-                    callback_data="Tutup"
-                ),
+                InlineKeyboardButton(text="Tutup", callback_data="Tutup"),
             ],
         ]
-        return buttons
     if (
         FORCE_SUB_1
         and FORCE_SUB_4
         and not FORCE_SUB_2
         and not FORCE_SUB_3
     ):
-        buttons = [
+        return [
             [
-                InlineKeyboardButton(
-                    text="Bantuan",
-                    callback_data="help"
-                ),
+                InlineKeyboardButton(text="Bantuan", callback_data="help"),
             ],
             [
-                InlineKeyboardButton(
-                    text="Join 1",
-                    url=client.invitelink
-                ),
-                InlineKeyboardButton(
-                    text="Join 2",
-                    url=client.invitelink4
-                ),
+                InlineKeyboardButton(text="Join 1", url=client.invitelink),
+                InlineKeyboardButton(text="Join 2", url=client.invitelink4),
             ],
             [
-                InlineKeyboardButton(
-                    text="Tutup",
-                    callback_data="Tutup"
-                ),
+                InlineKeyboardButton(text="Tutup", callback_data="Tutup"),
             ],
         ]
-        return buttons
     if (
         FORCE_SUB_2
         and FORCE_SUB_3
         and not FORCE_SUB_1
         and not FORCE_SUB_4
     ):
-        buttons = [
+        return [
             [
-                InlineKeyboardButton(
-                    text="Bantuan",
-                    callback_data="help"
-                ),
+                InlineKeyboardButton(text="Bantuan", callback_data="help"),
             ],
             [
-                InlineKeyboardButton(
-                    text="Join 1",
-                    url=client.invitelink2
-                ),
-                InlineKeyboardButton(
-                    text="Join 2",
-                    url=client.invitelink3
-                ),
+                InlineKeyboardButton(text="Join 1", url=client.invitelink2),
+                InlineKeyboardButton(text="Join 2", url=client.invitelink3),
             ],
             [
-                InlineKeyboardButton(
-                    text="Tutup",
-                    callback_data="Tutup"
-                ),
+                InlineKeyboardButton(text="Tutup", callback_data="Tutup"),
             ],
         ]
-        return buttons
     if (
         FORCE_SUB_2
         and FORCE_SUB_4
         and not FORCE_SUB_1
         and not FORCE_SUB_3
     ):
-        buttons = [
+        return [
             [
-                InlineKeyboardButton(
-                    text="Bantuan",
-                    callback_data="help"
-                ),
+                InlineKeyboardButton(text="Bantuan", callback_data="help"),
             ],
             [
-                InlineKeyboardButton(
-                    text="Join 1",
-                    url=client.invitelink2
-                ),
-                InlineKeyboardButton(
-                    text="Join 2",
-                    url=client.invitelink4
-                ),
+                InlineKeyboardButton(text="Join 1", url=client.invitelink2),
+                InlineKeyboardButton(text="Join 2", url=client.invitelink4),
             ],
             [
-                InlineKeyboardButton(
-                    text="Tutup",
-                    callback_data="Tutup"
-                ),
+                InlineKeyboardButton(text="Tutup", callback_data="Tutup"),
             ],
         ]
-        return buttons
     if (
         FORCE_SUB_3
         and FORCE_SUB_4
         and not FORCE_SUB_1
         and not FORCE_SUB_2
     ):
-        buttons = [
+        return [
             [
-                InlineKeyboardButton(
-                    text="Bantuan",
-                    callback_data="help"
-                ),
+                InlineKeyboardButton(text="Bantuan", callback_data="help"),
             ],
             [
-                InlineKeyboardButton(
-                    text="Join 1",
-                    url=client.invitelink3
-                ),
-                InlineKeyboardButton(
-                    text="Join 2",
-                    url=client.invitelink4
-                ),
+                InlineKeyboardButton(text="Join 1", url=client.invitelink3),
+                InlineKeyboardButton(text="Join 2", url=client.invitelink4),
             ],
             [
-                InlineKeyboardButton(
-                    text="Tutup",
-                    callback_data="Tutup"
-                ),
+                InlineKeyboardButton(text="Tutup", callback_data="Tutup"),
             ],
         ]
-        return buttons
     if (
         FORCE_SUB_1
         and FORCE_SUB_2
         and FORCE_SUB_3
         and not FORCE_SUB_4
     ):
-        buttons = [
+        return [
             [
-                InlineKeyboardButton(
-                    text="Bantuan",
-                    callback_data="help"
-                ),
+                InlineKeyboardButton(text="Bantuan", callback_data="help"),
             ],
             [
-                InlineKeyboardButton(
-                    text="Join 1",
-                    url=client.invitelink
-                ),
-                InlineKeyboardButton(
-                    text="Join 2",
-                    url=client.invitelink2
-                ),
-                InlineKeyboardButton(
-                    text="Join 3",
-                    url=client.invitelink3
-                ),
+                InlineKeyboardButton(text="Join 1", url=client.invitelink),
+                InlineKeyboardButton(text="Join 2", url=client.invitelink2),
+                InlineKeyboardButton(text="Join 3", url=client.invitelink3),
             ],
             [
-                InlineKeyboardButton(
-                    text="Tutup",
-                    callback_data="Tutup"
-                ),
+                InlineKeyboardButton(text="Tutup", callback_data="Tutup"),
             ],
         ]
-        return buttons
     if (
         FORCE_SUB_1
         and FORCE_SUB_2
         and FORCE_SUB_4
         and not FORCE_SUB_3
     ):
-        buttons = [
+        return [
             [
-                InlineKeyboardButton(
-                    text="Bantuan",
-                    callback_data="help"
-                ),
+                InlineKeyboardButton(text="Bantuan", callback_data="help"),
             ],
             [
-                InlineKeyboardButton(
-                    text="Join 1",
-                    url=client.invitelink
-                ),
-                InlineKeyboardButton(
-                    text="Join 2",
-                    url=client.invitelink2
-                ),
-                InlineKeyboardButton(
-                    text="Join 3",
-                    url=client.invitelink4
-                ),
+                InlineKeyboardButton(text="Join 1", url=client.invitelink),
+                InlineKeyboardButton(text="Join 2", url=client.invitelink2),
+                InlineKeyboardButton(text="Join 3", url=client.invitelink4),
             ],
             [
-                InlineKeyboardButton(
-                    text="Tutup",
-                    callback_data="Tutup"
-                ),
+                InlineKeyboardButton(text="Tutup", callback_data="Tutup"),
             ],
         ]
-        return buttons
     if (
         FORCE_SUB_1
         and FORCE_SUB_3
         and FORCE_SUB_4
         and not FORCE_SUB_2
     ):
-        buttons = [
+        return [
             [
-                InlineKeyboardButton(
-                    text="Bantuan",
-                    callback_data="help"
-                ),
+                InlineKeyboardButton(text="Bantuan", callback_data="help"),
             ],
             [
-                InlineKeyboardButton(
-                    text="Join 1",
-                    url=client.invitelink
-                ),
-                InlineKeyboardButton(
-                    text="Join 2",
-                    url=client.invitelink3
-                ),
-                InlineKeyboardButton(
-                    text="Join 3",
-                    url=client.invitelink4
-                ),
+                InlineKeyboardButton(text="Join 1", url=client.invitelink),
+                InlineKeyboardButton(text="Join 2", url=client.invitelink3),
+                InlineKeyboardButton(text="Join 3", url=client.invitelink4),
             ],
             [
-                InlineKeyboardButton(
-                    text="Tutup",
-                    callback_data="Tutup"
-                ),
+                InlineKeyboardButton(text="Tutup", callback_data="Tutup"),
             ],
         ]
-        return buttons
     if (
         FORCE_SUB_2
         and FORCE_SUB_3
         and FORCE_SUB_4
         and not FORCE_SUB_1
     ):
-        buttons = [
+        return [
             [
-                InlineKeyboardButton(
-                    text="Bantuan",
-                    callback_data="help"
-                ),
+                InlineKeyboardButton(text="Bantuan", callback_data="help"),
             ],
             [
-                InlineKeyboardButton(
-                    text="Join 1",
-                    url=client.invitelink2
-                ),
-                InlineKeyboardButton(
-                    text="Join 2",
-                    url=client.invitelink3
-                ),
-                InlineKeyboardButton(
-                    text="Join 3",
-                    url=client.invitelink4
-                ),
+                InlineKeyboardButton(text="Join 1", url=client.invitelink2),
+                InlineKeyboardButton(text="Join 2", url=client.invitelink3),
+                InlineKeyboardButton(text="Join 3", url=client.invitelink4),
             ],
             [
-                InlineKeyboardButton(
-                    text="Tutup",
-                    callback_data="Tutup"
-                ),
+                InlineKeyboardButton(text="Tutup", callback_data="Tutup"),
             ],
         ]
-        return buttons
     if (
         FORCE_SUB_1
         and FORCE_SUB_2
         and FORCE_SUB_3
         and FORCE_SUB_4
     ):
-        buttons = [
+        return [
             [
-                InlineKeyboardButton(
-                    text="Bantuan",
-                    callback_data="help"
-                ),
+                InlineKeyboardButton(text="Bantuan", callback_data="help"),
             ],
             [
-                InlineKeyboardButton(
-                    text="Join 1",
-                    url=client.invitelink
-                ),
-                InlineKeyboardButton(
-                    text="Join 2",
-                    url=client.invitelink2
-                ),
+                InlineKeyboardButton(text="Join 1", url=client.invitelink),
+                InlineKeyboardButton(text="Join 2", url=client.invitelink2),
             ],
             [
-                InlineKeyboardButton(
-                    text="Join 3",
-                    url=client.invitelink3
-                ),
-                InlineKeyboardButton(
-                    text="Join 4",
-                    url=client.invitelink4
-                ),
+                InlineKeyboardButton(text="Join 3", url=client.invitelink3),
+                InlineKeyboardButton(text="Join 4", url=client.invitelink4),
             ],
             [
-                InlineKeyboardButton(
-                    text="Tutup",
-                    callback_data="Tutup"
-                ),
+                InlineKeyboardButton(text="Tutup", callback_data="Tutup"),
             ],
         ]
-        return buttons
 
 
 def fsub_button(client, message):
