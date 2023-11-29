@@ -76,6 +76,9 @@ async def channel_post(client: Client, message: Message):
     if not DISABLE_CHANNEL_BUTTON:
         try:
             await post_message.edit_reply_markup(reply_markup)
+        except FloodWait as e:
+            await asyncio.sleep(e.value)
+            await post_message.edit_reply_markup(reply_markup)
         except Exception:
             pass
 
@@ -100,6 +103,9 @@ async def new_post(client: Client, message: Message):
         ]
     )
     try:
+        await message.edit_reply_markup(reply_markup)
+    except FloodWait as e:
+        await asyncio.sleep(e.value)
         await message.edit_reply_markup(reply_markup)
     except Exception:
         pass
