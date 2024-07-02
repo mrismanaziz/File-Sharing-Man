@@ -2,9 +2,9 @@ feedparser
 gitpython
 heroku3
 psycopg2-binary
-pyrogram
+git+https://github.com/KurimuzonAkuma/pyrogram@dev
 python-dotenv
-Pyromod==1.5
+Pyromod
 speedtest-cli
 sqlalchemy==1.3.23
 TgCrypto
